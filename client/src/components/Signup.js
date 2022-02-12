@@ -29,13 +29,16 @@ class Signup extends React.Component {
 
 				// 2. then, update with user infos
 				// edit => didn't exit-> need to change
+				/*
 				authService
+					
 					.edit(
 						this.state.email,
 						this.state.password,
 						this.state.firstname,
 						this.state.city
 					)
+					
 					.then((response) => {
 						this.setState({ error: "" });
 
@@ -43,6 +46,7 @@ class Signup extends React.Component {
 						this.props.history.push("/");
 					})
 					.catch((err) => this.setState({ error: err.response.data.message }));
+					*/
 			})
 			.catch((err) => this.setState({ error: err.response.data.message }));
 		if (this.setState === undefined) {
