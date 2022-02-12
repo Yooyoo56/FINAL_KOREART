@@ -16,16 +16,13 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/loggedin", (req, res) => {
-<<<<<<< HEAD
 	res.json(req.user);
 	if (!req.user) {
 		return res
 			.status(400)
 			.json({ errorMessage: "You are not loggedin please login." });
 	}
-=======
 	res.json(req.session.user);
->>>>>>> 16fe708bd0d1ec61815e78bfd4c21493026e65dc
 });
 
 ////////////////////// signup page ===> /users///////////////////////////
@@ -206,6 +203,5 @@ router.get("/logout", isLoggedIn, (req, res) => {
 		res.json({ message: "Done" });
 	});
 });
-   
 
 module.exports = router;
