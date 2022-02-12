@@ -11,27 +11,25 @@ class Profile extends React.Component {
 	};
 
 	render() {
-		if (this.props.user === false) return <Redirect to="/" />;
+		if (this.props.user === false) return <Redirect to="/ " />;
 		return (
 			<>
 				<Popin
 					one={
 						<>
 							<h1>Profile</h1>
-
 							<p>
-								<em>Email</em>
+								<em>Email:</em>
 								<span>{this.props.user.email}</span>
 							</p>
 							<p>
-								<em>Name</em>
+								<em>Name:</em>
 								<span>{this.props.user.firstname}</span>
 							</p>
 							<p>
-								<em>City</em>
+								<em>City:</em>
 								<span>{this.props.user.city}</span>
 							</p>
-
 							<div className="cta">
 								<button className="btn logout" onClick={this.logout}>
 									Logout

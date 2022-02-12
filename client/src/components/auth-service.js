@@ -25,6 +25,16 @@ export default {
 			})
 			.then((response) => response.data);
 	},
+	/*	edit(email, password, firstname, city) {
+		return this.service
+			.post("/edit", {
+				email,
+				password,
+				firstname,
+				city,
+			})
+			.then((response) => response.data);
+	},*/
 	loggedin() {
 		return this.service.get("/loggedin").then((response) => response.data);
 	},

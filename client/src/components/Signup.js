@@ -24,6 +24,7 @@ class Signup extends React.Component {
 				this.state.firstname,
 				this.state.city
 			)
+			// 2. then, update with user infos
 			.then(() => {
 				this.setState({ error: "" });
 
@@ -31,22 +32,22 @@ class Signup extends React.Component {
 				// edit => didn't exit-> need to change
 				/*
 				authService
-					
 					.edit(
 						this.state.email,
 						this.state.password,
 						this.state.firstname,
 						this.state.city
 					)
-					
+
 					.then((response) => {
 						this.setState({ error: "" });
 
 						this.props.updateUser(response);
-						this.props.history.push("/");
+						this.props.history.push("/profile");
 					})
-					.catch((err) => this.setState({ error: err.response.data.message }));
-					*/
+					.catch((err) =>
+						this.setState({ error: err.response.data.errorMessage })
+					);*/
 			})
 			.catch((err) => {
 				this.setState({ error: err.response.data.errorMessage });

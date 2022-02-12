@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 
+//import the autService! (to link backend-frontend)
+import authService from "./components/auth-service.js";
+
 //import the route of the each page
 import Home from "./components/Home";
 import Artists from "./components/Artists";
@@ -11,8 +14,6 @@ import Gallery from "./components/Gallery";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-
-import authService from "./components/auth-service.js";
 
 class App extends Component {
 	state = {
@@ -55,6 +56,7 @@ class App extends Component {
 							<Route exact path="/artists" component={Artists} />
 							<Route exact path="/workarts" component={Workarts} />
 							<Route exact path="/gallery" component={Gallery} />
+
 							<Route
 								exact
 								path="/signup"
