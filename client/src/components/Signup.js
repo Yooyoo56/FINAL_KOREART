@@ -48,10 +48,9 @@ class Signup extends React.Component {
 					.catch((err) => this.setState({ error: err.response.data.message }));
 					*/
 			})
-			.catch((err) => this.setState({ error: err.response.data.message }));
-		if (this.setState === undefined) {
-			return;
-		}
+			.catch((err) => {
+				this.setState({ error: err.response.data.errorMessage });
+			});
 	};
 
 	handleChange = (event) => {
@@ -66,9 +65,8 @@ class Signup extends React.Component {
 					<>
 						<h1>Sign up</h1>
 
+						{this.state.error && <h2 className="error">{this.state.error}</h2>}
 						<form onSubmit={this.handleSubmit}>
-							{this.state.error && <p className="error">{this.state.error}</p>}
-
 							<p>
 								<label>
 									<em>Email</em>
