@@ -19,11 +19,11 @@ class Login extends React.Component {
     authService.login(this.state.email, this.state.password)
       .then(response => {
         this.setState({error: ""});
-
+        console.log("response:",response)
         this.props.updateUser(response);
-        this.props.history.push('/');
+        this.props.history.push('/profile');
       })
-      .catch(err => this.setState({error: err.response.data.message}))
+      .catch(err => this.setState({error: err.response.data.errorMessage}))
       if (this.setState === undefined){
         return;
       }
@@ -40,7 +40,7 @@ class Login extends React.Component {
       <Popin one={(
         <>
           <h1>Log in</h1>
-          
+          {this.state.error && <h2 className="error">{this.state.error}</h2>}
           <form onSubmit={this.handleSubmit}>
 
             {this.state.error && (

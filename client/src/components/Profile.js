@@ -5,10 +5,13 @@ import { Redirect } from "react-router-dom";
 
 class Profile extends React.Component {
 	logout = (event) => {
-		authService.logout().then((response) => {
+		authService.logout()
+		.then((response) => {
 			this.props.updateUser(false);
 		});
-	};
+	}
+
+
 
 	render() {
 		if (this.props.user === false) return <Redirect to="/" />;
@@ -30,6 +33,7 @@ class Profile extends React.Component {
 							<p>
 								<em>City</em>
 								<span>{this.props.user.city}</span>
+								
 							</p>
 
 							<div className="cta">
