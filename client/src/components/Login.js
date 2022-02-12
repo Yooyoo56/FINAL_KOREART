@@ -16,6 +16,7 @@ class Login extends React.Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 
+<<<<<<< HEAD
 		authService
 			.login(this.state.email, this.state.password)
 			.then((response) => {
@@ -26,12 +27,28 @@ class Login extends React.Component {
 			})
 			.catch((err) => this.setState({ error: err.response.data.errorMessage }));
 	};
+=======
+    authService.login(this.state.email, this.state.password)
+      .then(response => {
+        this.setState({error: ""});
+        console.log("response:",response)
+        this.props.updateUser(response);
+        this.props.history.push('/profile');
+      })
+      .catch(err => this.setState({error: err.response.data.errorMessage}))
+      if (this.setState === undefined){
+        return;
+      }
+    ;
+  }
+>>>>>>> 16fe708bd0d1ec61815e78bfd4c21493026e65dc
 
 	handleChange = (event) => {
 		const { name, value } = event.target;
 		this.setState({ [name]: value });
 	};
 
+<<<<<<< HEAD
 	render() {
 		return (
 			<Popin
@@ -51,6 +68,15 @@ class Login extends React.Component {
 									/>
 								</label>
 							</p>
+=======
+  render() {
+    return (
+      <Popin one={(
+        <>
+          <h1>Log in</h1>
+          {this.state.error && <h2 className="error">{this.state.error}</h2>}
+          <form onSubmit={this.handleSubmit}>
+>>>>>>> 16fe708bd0d1ec61815e78bfd4c21493026e65dc
 
 							<p>
 								<label>

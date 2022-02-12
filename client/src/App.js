@@ -24,7 +24,10 @@ class App extends Component {
 		if (!this.state.user._id) {
 			authService
 				.loggedin()
-				.then((data) => this.setState({ user: data }))
+				.then((data) => {
+					console.log("data",data)
+					this.setState({ user: data })
+				})
 				.catch((err) => this.setState({ user: false }));
 		} else {
 			console.log("user already in the state");
