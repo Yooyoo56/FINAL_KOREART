@@ -33,19 +33,9 @@ class Profile extends React.Component {
 								</p>
 								<div className="cta">
 									<button className="btn logout" onClick={this.logout}>
-										<a href="/">logout</a>
+										logout
 									</button>
 								</div>
-							</>
-						}
-						two={
-							<>
-								<p>
-									<small>
-										The user is able to upload a new profile photo, using NodeJS
-										and Multer uploader.
-									</small>
-								</p>
 							</>
 						}
 					/>
