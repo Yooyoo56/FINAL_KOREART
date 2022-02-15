@@ -15,15 +15,28 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+router.get("/loggedin", (req, res, next) => {
+	if (req.user) {
+		res.status(200).json(req.user);
+		return;
+	}
+	res.status(403).json({ errorMessage: "Not authorized!" });
+});
+
+/*
+//Created the error :ERR_HTTP_HEADERS_SENT'!!
 router.get("/loggedin", (req, res) => {
 	res.json(req.user);
-	if (!req.user) {
-		return res
+	if (req.user) {
+		res
 			.status(400)
 			.json({ errorMessage: "You are not loggedin please login." });
+		return;
 	}
 	res.json(req.session.user);
 });
+
+*/
 
 ////////////////////// signup page ===> /users///////////////////////////
 
@@ -203,5 +216,4 @@ router.get("/logout", isLoggedIn, (req, res) => {
 		res.json({ message: "Done" });
 	});
 });
-
 module.exports = router;

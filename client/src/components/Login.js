@@ -76,11 +76,6 @@ class Login extends React.Component {
 				two={
 					<>
 						<p>
-							<strong>Hello!!</strong>
-							Awesome to have at IronProfile again!
-						</p>
-
-						<p>
 							<small>
 								If you login, you agree with all our terms and conditions where
 								we can do whatever we want with the data!
