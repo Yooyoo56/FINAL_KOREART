@@ -65,8 +65,7 @@ class App extends Component {
 								path="/signup"
 								render={(props) => (
 									<Signup
-										updateUser={this.updateUser}
-										history={props.history}
+										updateUser={this.updateUser} history={props.history}
 									/>
 								)}
 							/>
@@ -75,7 +74,9 @@ class App extends Component {
 								exact
 								path="/login"
 								render={(props) => (
-									<Login updateUser={this.updateUser} history={props.history} />
+									<Login updateUser={this.updateUser} 
+									history={props.history}
+								/>
 								)}
 							/>
 
@@ -87,6 +88,8 @@ class App extends Component {
 										user={this.state.user}
 										updateUser={this.updateUser}
 										history={props.history}
+								
+
 									/>
 								)}
 							/>

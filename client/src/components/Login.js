@@ -21,8 +21,10 @@ class Login extends React.Component {
 			.then((response) => {
 				this.setState({ error: "" });
 
+				console.log("before update user",this.props.history)
 				this.props.updateUser(response);
 				this.props.history.push("/profile");
+				console.log("after update user",this.props.history)
 			})
 			.catch((err) => this.setState({ error: err.response.data.errorMessage }));
 	};
@@ -33,6 +35,8 @@ class Login extends React.Component {
 	};
 
 	render() {
+		console.log("from render login",this.props.history)
+
 		return (
 			<Popin
 				one={

@@ -11,7 +11,7 @@ class Profile extends React.Component {
 	};
 
 	render() {
-		if (this.props.user === false) return <Redirect to="/" />;
+		if (this.props.user === false) return "stop boy!";
 		else {
 			return (
 				<>
