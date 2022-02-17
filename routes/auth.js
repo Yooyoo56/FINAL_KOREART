@@ -97,7 +97,7 @@ router.post("/users", isLoggedOut, (req, res) => {
 			})
 			.then((user) => {
 				// Bind the user to the session object
-				req.session.user = user;
+				req.session.user = user; // favorites = { nameArt,}, IDlkflkfs
 				res.status(201).json(user);
 			})
 			.catch((error) => {

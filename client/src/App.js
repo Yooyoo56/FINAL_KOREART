@@ -6,6 +6,9 @@ import { Switch, Route } from "react-router-dom";
 //import the autService! (to link backend-frontend)
 import authService from "./components/auth-service.js";
 
+//import the navbar
+import Navbar from "./components/Navbar";
+
 //import the route of the each page
 import Home from "./components/Home";
 import Artists from "./components/Artists";
@@ -25,8 +28,8 @@ class App extends Component {
 			authService
 				.loggedin()
 				.then((data) => {
-					console.log("data",data)
-					this.setState({ user: data })
+					console.log("data", data);
+					this.setState({ user: data });
 				})
 				.catch((err) => this.setState({ user: false }));
 		} else {
@@ -49,6 +52,7 @@ class App extends Component {
 					<div className="App" data-route={props.location.pathname}>
 						{" "}
 						{/* data-route="/" allow us to style pages */}
+						<Navbar />
 						<Switch>
 							<Route
 								exact
@@ -65,7 +69,8 @@ class App extends Component {
 								path="/signup"
 								render={(props) => (
 									<Signup
-										updateUser={this.updateUser} history={props.history}
+										updateUser={this.updateUser}
+										history={props.history}
 									/>
 								)}
 							/>
@@ -74,9 +79,7 @@ class App extends Component {
 								exact
 								path="/login"
 								render={(props) => (
-									<Login updateUser={this.updateUser} 
-									history={props.history}
-								/>
+									<Login updateUser={this.updateUser} history={props.history} />
 								)}
 							/>
 
@@ -88,8 +91,6 @@ class App extends Component {
 										user={this.state.user}
 										updateUser={this.updateUser}
 										history={props.history}
-								
-
 									/>
 								)}
 							/>

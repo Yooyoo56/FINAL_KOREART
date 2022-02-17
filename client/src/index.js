@@ -6,13 +6,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-//import the navbar
-import Navbar from "./components/Navbar";
-
 ReactDOM.render(
 	<React.StrictMode>
 		<Router>
-			<Navbar />
 			<App />
 		</Router>
 	</React.StrictMode>,

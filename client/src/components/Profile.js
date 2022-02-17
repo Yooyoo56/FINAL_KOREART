@@ -11,7 +11,8 @@ class Profile extends React.Component {
 	};
 
 	render() {
-		if (this.props.user === false) return "stop boy!";
+		if (this.props.user === false)
+			return "You should loggedin to aceess your profile!";
 		else {
 			return (
 				<>
@@ -36,6 +37,7 @@ class Profile extends React.Component {
 										logout
 									</button>
 								</div>
+								<div></div>
 							</>
 						}
 					/>
