@@ -2,7 +2,9 @@
 // https://www.npmjs.com/package/mongoose
 const mongoose = require("mongoose");
 
+// take the model for the mongodb
 const Artist = require("../models/Artist.model");
+const Workart = require("../models/Workart.model");
 
 // ℹ️ Sets the MongoDB URI for our app to have access to it.
 // If no env has been set, we dynamically set it to whatever the folder name was upon the creation of the app
@@ -21,7 +23,6 @@ mongoose
 	});
 
 //creation of the artists on MongoDB
-
 const artists = [
 	{
 		name: "Do Ho Suh",
@@ -65,6 +66,119 @@ const artists = [
 	},
 ];
 
+const workarts = [
+	{
+		name: "Reflection",
+		artist: mongoose.Types.ObjectId("620ea8b3700e3db10238b18a"),
+		image: "https://uploads4.wikiart.org/images/do-ho-suh/reflection-2004.jpg",
+		type: "Ceramique",
+		price_workart: {
+			value: 20000,
+			currency: "EUR",
+		},
+		description: "2004",
+		createdAt: "2022-02-15T19:37:35.898+00:00",
+		updatedAt: "2022-02-15T19:37:35.898+00:00",
+	},
+	{
+		name: "Karma",
+		artist: mongoose.Types.ObjectId("620ea8b3700e3db10238b18a"),
+		image: "https://uploads8.wikiart.org/images/do-ho-suh/karma-2003.jpg",
+		type: "Ceramique",
+		price_workart: {
+			value: 30000,
+			currency: "EUR",
+		},
+		description: "2003",
+		createdAt: "2022-02-15T19:37:35.898+00:00",
+		updatedAt: "2022-02-15T19:37:35.898+00:00",
+	},
+	{
+		name: "The Pulse of the Earth",
+		artist: mongoose.Types.ObjectId("620ea8b3700e3db10238b18b"),
+		image:
+			"http://pointcontemporain.com/wp-content/uploads/2020/04/jeongmoon_choi-le_pouls_de_la_terre-frac_alsace-4.jpg",
+		type: "NFT",
+		price_workart: {
+			value: 40000,
+			currency: "EUR",
+		},
+		description: "2020",
+		createdAt: "2022-02-15T19:37:35.898+00:00",
+		updatedAt: "2022-02-15T19:37:35.898+00:00",
+	},
+	{
+		name: "Dialogue linéaire IV",
+		artist: mongoose.Types.ObjectId("620ea8b3700e3db10238b18b"),
+		image:
+			"https://medias.slash-paris.com/media_attachments/images/000/006/286/Jeongmoon_Choi_Dialogue_line_aire_IV_2012_Fil_bleu_sur_papier_21_x_29_7_cm_large.jpg",
+		type: "Painting",
+		price_workart: {
+			value: 40000,
+			currency: "EUR",
+		},
+		description: "2012",
+		createdAt: "2022-02-15T19:37:35.898+00:00",
+		updatedAt: "2022-02-15T19:37:35.898+00:00",
+	},
+	{
+		name: "Gamer",
+		artist: mongoose.Types.ObjectId("620ea8b3700e3db10238b18c"),
+		image:
+			"https://artlogic-res.cloudinary.com/w_1200,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/echoecho/images/view/8a03e618521ec9658c53850f65b8a9b9/echofinearts-jeeyoung-lee-gamer-2011.jpg",
+		type: "NFT",
+		price_workart: {
+			value: 25000,
+			currency: "EUR",
+		},
+		description: "2011",
+		createdAt: "2022-02-15T19:37:35.898+00:00",
+		updatedAt: "2022-02-15T19:37:35.898+00:00",
+	},
+	{
+		name: "Resurrection",
+		artist: mongoose.Types.ObjectId("620ea8b3700e3db10238b18c"),
+		image:
+			"http://www.lense.fr/wp-content/uploads/2013/12/JYL002-JeeYoungLEE-OPIOM-resurrection_120x96cm_Inkjet-print_2011.jpg",
+		type: "NFT",
+		price_workart: {
+			value: 10000,
+			currency: "EUR",
+		},
+		description: "2011",
+		createdAt: "2022-02-15T19:37:35.898+00:00",
+		updatedAt: "2022-02-15T19:37:35.898+00:00",
+	},
+	{
+		name: "aewan #1019",
+		artist: mongoose.Types.ObjectId("620ea8b3700e3db10238b18d"),
+		image:
+			"https://static.designboom.com/weblog/images/images_2/lara/818_images/ham_jin/ham_jin_02.jpg",
+		type: "Painting",
+		price_workart: {
+			value: 3000,
+			currency: "EUR",
+		},
+		description: "2004",
+		createdAt: "2022-02-15T19:37:35.898+00:00",
+		updatedAt: "2022-02-15T19:37:35.898+00:00",
+	},
+	{
+		name: "Yellow Pieces",
+		artist: mongoose.Types.ObjectId("620ea8b3700e3db10238b18d"),
+		image:
+			"https://d7hftxdivxxvm.cloudfront.net/?resize_to=fit&width=200&height=149&quality=80&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FmauvIOVfr_1MoEQlzJPRwA%2Flarge.jpg",
+		type: "Ceramique",
+		price_workart: {
+			value: 8000,
+			currency: "EUR",
+		},
+		description: "2013",
+		createdAt: "2022-02-15T19:37:35.898+00:00",
+		updatedAt: "2022-02-15T19:37:35.898+00:00",
+	},
+];
+
 //createn the artists
 Artist.create(artists)
 	.then(function (artistsDB) {
@@ -72,6 +186,17 @@ Artist.create(artists)
 	})
 	.catch((err) => {
 		console.log("Error! during the creation of the artists DB");
+		console.log("Error ==========>", err);
+		next(err);
+	});
+
+//createn the artists
+Workart.create(workarts)
+	.then(function (workartsDB) {
+		console.log(`${workartsDB.length} Workarts have been created! 🥳`);
+	})
+	.catch((err) => {
+		console.log("Error! during the creation of the workarts DB");
 		console.log("Error ==========>", err);
 		next(err);
 	});
