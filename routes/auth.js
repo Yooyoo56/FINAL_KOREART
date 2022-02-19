@@ -141,7 +141,7 @@ router.post("/sessions", isLoggedOut, (req, res, next) => {
 	// Search the database for a user with the username submitted in the form
 	User.findOne({ email })
 		// utilisateur est loggé
-		.populate("workart")
+		/*.populate("workart")*/
 		.then((user) => {
 			// If the user isn't found, send the message that user provided wrong credentials
 			if (!user) {
