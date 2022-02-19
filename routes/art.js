@@ -20,9 +20,9 @@ router.get("/artists", (req, res, next) => {
 });
 
 router.get("/artists/:id", (req, res) => {
-	Artist.findById()
-		.then((artistId) => {
-			res.json({ artistId });
+	Artist.findById(req.params.id)
+		.then((artistFromDb) => {
+			res.json(artistFromDb);
 		})
 		.catch((error) => {
 			res

@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-
 import Popin from "../Popin.js";
 import authService from "./auth-service.js";
 
