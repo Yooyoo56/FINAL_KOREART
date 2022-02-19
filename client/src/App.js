@@ -12,7 +12,9 @@ import Navbar from "./components/Navbar";
 //import the route of the each page
 import Home from "./components/Home";
 import Artists from "./components/Artists";
+import ArtistDetails from "./components/ArtistDetails";
 import Workarts from "./components/Workarts";
+import WorkartDetails from "./components/WorkartDetails";
 import Gallery from "./components/Gallery";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -61,8 +63,11 @@ class App extends Component {
 							/>
 
 							<Route exact path="/artists" component={Artists} />
+							<Route exact path="/artists/:id" component={ArtistDetails} />
 							<Route exact path="/workarts" component={Workarts} />
+							<Route exact path="/workarts/:id" component={WorkartDetails} />
 							<Route exact path="/gallery" component={Gallery} />
+							
 
 							<Route
 								exact

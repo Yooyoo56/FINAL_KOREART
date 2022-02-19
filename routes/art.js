@@ -42,9 +42,9 @@ router.get("/workarts", (req, res) => {
 });
 
 router.get("/workarts/:id", (req, res) => {
-	Workart.findById()
-		.then((workartId) => {
-			res.json({ workartId });
+	Workart.findById(req.params.id)
+		.then((workartFromDb) => {
+			res.json({ workartFromDb });
 		})
 		.catch((error) => {
 			res

@@ -1,14 +1,51 @@
-/*import React from 'react';
+import React from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Workarts extends React.Component {
-    render(){
-        return (
-            <>
-            Hello, this is the Workart page!
-            </>
-        )
-    }
+    state = { listOfWorkarts: [] }
 
+        getAllWorkarts = () => {
+            axios.get('http://localhost:5005/workarts')
+
+            .then(responseFromApi => {
+                console.log("responseFromApi",responseFromApi.data.workarts)
+                this.setState({
+                    listOfWorkarts: responseFromApi.data.workarts
+                })
+            })
+            .catch(err => console.log('Error while fetching workarts', err))
+            //return undefined
+        }
+        
+        componentDidMount() {
+            this.getAllWorkarts();
+        }
+    
+
+        render(){
+            return(
+              <div>
+
+                <h1>Hello, this is the workarts page!</h1>
+
+                <div>
+                  { this.state.listOfWorkarts.map( workarts => {
+                    return (
+                      <div key={workarts._id}>
+                        <Link to={`/workarts/${workarts._id}`}>
+                          <h3>{workarts.name}</h3>
+                        </Link>
+                      </div>
+                    )})
+                  }
+                </div>
+                
+              </div>
+            )
+        }
 }
+
+
 export default Workarts;
-*/
+
