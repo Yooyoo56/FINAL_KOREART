@@ -179,6 +179,7 @@ const workarts = [
 	},
 ];
 
+/*
 //createn the artists
 Artist.create(artists)
 	.then(function (artistsDB) {
@@ -200,3 +201,4 @@ Workart.create(workarts)
 		console.log("Error ==========>", err);
 		next(err);
 	});
+	*/

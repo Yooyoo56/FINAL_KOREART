@@ -17,11 +17,21 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const Workart = require("../models/Workart.model");
 
 router.get("/loggedin", (req, res, next) => {
-	if (req.user) {
-		res.status(200).json(req.user);
-		return;
+	if (!req.user) {
+		res.status(403).json({ errorMessage: "Not authorized!" });
+		return
 	}
-	res.status(403).json({ errorMessage: "Not authorized!" });
+
+	User.findById(req.user._id)
+		.populate('favorites')
+		.then(userFromDB => {
+			res.json(userFromDB) // dernieres infos a jour du user
+		})
+		.catch(err => {
+			console.log(err);
+			next(err)
+		})
+	
 });
 
 /*
@@ -140,8 +150,6 @@ router.post("/sessions", isLoggedOut, (req, res, next) => {
 
 	// Search the database for a user with the username submitted in the form
 	User.findOne({ email })
-		// utilisateur est loggé
-		/*.populate("workart")*/
 		.then((user) => {
 			// If the user isn't found, send the message that user provided wrong credentials
 			if (!user) {

@@ -32,6 +32,14 @@ class Profile extends React.Component {
 									<em>City:</em>
 									<span>{this.props.user.city}</span>
 								</p>
+
+								<p>
+									<em>My whilist:</em>
+									<span></span>
+								</p>
+
+
+
 								<div className="cta">
 									<button className="btn logout" onClick={this.logout}>
 										logout
