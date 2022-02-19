@@ -30,11 +30,11 @@ class Workarts extends React.Component {
                 <h1>Hello, this is the workarts page!</h1>
 
                 <div>
-                  { this.state.listOfWorkarts.map( workarts => {
+                  { this.state.listOfWorkarts.map( workart => {
                     return (
-                      <div key={workarts._id}>
-                        <Link to={`/workarts/${workarts._id}`}>
-                          <h3>{workarts.name}</h3>
+                      <div key={workart._id}>
+                        <Link to={`/workarts/${workart._id}`}>
+                          <h3>{workart.name}</h3>
                         </Link>
                       </div>
                     )})

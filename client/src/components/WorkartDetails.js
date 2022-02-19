@@ -16,10 +16,11 @@ class WorkartDetails extends Component {
       axios.get(`http://localhost:5005/workarts/${params.id}`)
         .then( responseFromApi =>{
           const theWorkart = responseFromApi.data;
+          console.log("the workart",theWorkart);
           this.setState(theWorkart);
         })
         .catch((err)=>{
-          console.log('Error while fetching workarts', err)
+          console.log('Error while fetching workart', err)
         })
   }
 
@@ -28,7 +29,6 @@ class WorkartDetails extends Component {
       console.log("this state",this.state);
     return(
       <div>
-        {/*👨‍🏫*/}
         <div>this is the workart detail</div>
         <h1>{this.state.name}</h1>
         <p>{this.state.description}</p>

@@ -44,7 +44,19 @@ router.get("/workarts", (req, res) => {
 router.get("/workarts/:id", (req, res) => {
 	Workart.findById(req.params.id)
 		.then((workartFromDb) => {
-			res.json({ workartFromDb });
+			res.json(workartFromDb);
+		})
+		.catch((error) => {
+			res
+				.status(500)
+				.json({ errorMessage: "Failed to load the workart id page" });
+		});
+});
+
+router.get("/artists/:id/workarts", (req, res) => {
+	Workart.find({artist: mongoose.Types.ObjectId(req.params.id)})
+		.then((workartFromDb) => {
+			res.json({workarts: workartFromDb});
 		})
 		.catch((error) => {
 			res
