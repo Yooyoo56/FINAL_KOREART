@@ -27,12 +27,15 @@ class App extends Component {
 	};
 
 	fetchUser = () => {
-		if (!this.state.user._id) {
+		console.log("this state user",this.state.user);
+		if (!this.state.user) {
 			authService
 				.loggedin()
 				.then((data) => {
 					console.log("data", data);
 					this.setState({ user: data });
+					console.log("user after set state", this.state.user)
+
 				})
 				.catch((err) => this.setState({ user: false }));
 		} else {

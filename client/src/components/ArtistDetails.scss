@@ -1,0 +1,124 @@
+//@use postcss-cssnext;
+:root {
+  --dark: #1e293a;
+  --green: #00fcbb;
+}
+
+.card {
+  display: flex;
+  width: 100vw;
+  height: 45rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+.half {
+  width: 50%;
+}
+.img-container img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transform: scale(1.6);
+}
+
+.half-right {
+  background-color: var(--dark);
+  padding: 1.5rem 1rem 4rem 1rem;
+  position: relative;
+  & .online {
+    position: absolute;
+    right: 2rem;
+    color: #487098;
+    font-size: 0.65rem;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 0.4rem;
+      height: 0.4rem;
+      background-color: var(--green);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 120%;
+      transform: translate(-50%, -50%);
+      margin-left: 0.2rem;
+    }
+  }
+  & .name {
+    font-size: 1.7rem;
+    background: linear-gradient(#f83487, #fe8361);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  & h3 {
+    color: var(--green);
+    margin-top: 1rem;
+  }
+  & button {
+    background: linear-gradient(to right, var(--green), #00d8d4);
+    font-size: 0.7rem;
+    padding: 0.4rem 1.8rem;
+    border-radius: 1.8rem;
+    position: absolute;
+    bottom: 3rem;
+    right: 2rem;
+    cursor: pointer;
+  }
+  & p {
+    color: #487098;
+    font-size: 0.65rem;
+    margin-top: 0.4rem;
+  }
+}
+.triangle {
+  position: absolute;
+  bottom: -0.1rem;
+  width: 100%;
+  height: 7rem;
+  background: linear-gradient(#fe8361, #f83487);
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  & ul {
+    width: 35%;
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  & a {
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.8rem;
+    background-color: #fff;
+    color: #f83487;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.2rem;
+  }
+  & span {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.55rem;
+    color: white;
+  }
+}
+.fa-plus {
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(#fd1999, #a60fe7);
+  text-align: center;
+  line-height: 2.5rem;
+  font-size: 1rem;
+  color: white;
+}

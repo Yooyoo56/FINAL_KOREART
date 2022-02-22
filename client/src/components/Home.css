@@ -1,0 +1,133 @@
+
+
+
+.phone-screen {
+display: flex;
+flex-direction: column;
+font-family: Roboto, Verdana, Arial, sans-serif;  
+width: 100% ;
+}
+  
+.home-app {
+display: flex;
+flex-direction: column;
+font-family: Raleway, Verdana, Arial, sans-serif;
+flex-grow: 1
+}
+
+.home-app-header{
+display: flex;
+align-items: center;
+font-weight: bold;
+font-size: 14px;
+}
+
+.genre-info{
+    margin: auto 0;
+    text-align: center;
+    }
+    
+    .genre-title{
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    z-index: 1;
+    }
+    
+    .genre-tracks{
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    }
+    
+    .genre-tracks-count{
+    font-family: Roboto;
+    font-weight: 800;
+    }
+
+
+
+    .home-app-content{
+        flex-grow: 1;
+        }
+        
+        .home-app-content-section-mod-artists{
+        background-color: lightgray;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('koreartcat3.png');
+        background-position: center;
+        display: block;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 100px;
+        position: relative;
+        }
+        
+    
+
+            
+            .home-app-content-section-mod-workarts{
+            background-color: lightgray;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('koreartcat2.png');
+            background-position: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+            position: relative;
+            }
+        
+                
+                .home-app-content-section-mod-gallery{
+                background-color: lightgray;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-image: url('https://images.unsplash.com/photo-1547322617-3f783b07f999?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80');
+                background-position:  70% 40%;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 100px;
+                position: relative;
+                }
+                
+                
+                
+
+
+
+/*
+.home-app-content-section-mod-artists:after{
+    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(214, 81, 121) 100%);     
+    content: '';
+    opacity: .25;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}  
+*/
+
+
+
+
+
+
+/*
+:nth-child(even) {
+  background-color: gray;
+}
+*/
+

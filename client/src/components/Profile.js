@@ -34,8 +34,12 @@ class Profile extends React.Component {
 								</p>
 
 								<p>
-									<em>My whilist:</em>
-									<span></span>
+								
+									<em>My whishlist:</em>
+									{//this.props.user.favorites.map(workart => {
+									//	return (<span>{workart.name}</span>)
+									//})
+									}
 								</p>
 
 
