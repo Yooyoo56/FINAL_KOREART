@@ -3,7 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class WorkartDetails extends Component {
-  state = {}
+  state = {
+    favorited: null
+  }
 
   // monter le composant single artist
   componentDidMount(){
@@ -27,8 +29,9 @@ class WorkartDetails extends Component {
   
   addFavorite = () => {
     const { params } = this.props.match;
-    axios.put(`http://localhost:5005/add/${params.id}/favorite`)
+    axios.put(`http://localhost:5005/add/${params.id}/favorite`,{}, {withCredentials: true})
     .then((res) => (console.log(res.data)))
+
     .catch((err)=>{
         console.log(err)
     })
@@ -41,7 +44,10 @@ class WorkartDetails extends Component {
     return(
       <div>
         <div>this is the workart detail</div>
+        {// conditional rendering ? // this.props.state.favorited=!null
+         }
         <button onClick={() => this.addFavorite()}>étoile</button>
+        
         <h1>{this.state.name}</h1>
         <p>{this.state.description}</p>
 

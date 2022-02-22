@@ -23,12 +23,12 @@ import Profile from "./components/Profile";
 
 class App extends Component {
 	state = {
-		user: {},
+		user: {}, // {}
 	};
 
 	fetchUser = () => {
 		console.log("this state user",this.state.user);
-		if (!this.state.user) {
+		if (!this.state.user._id) {
 			authService
 				.loggedin()
 				.then((data) => {

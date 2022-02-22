@@ -14,6 +14,10 @@ class Profile extends React.Component {
 		if (this.props.user === false)
 			return "You should loggedin to aceess your profile!";
 		else {
+
+			// si user vide, n'affiche rien !!!!!
+			if (!this.props.user._id) return "loading..."
+
 			return (
 				<>
 					<Popin
@@ -36,9 +40,10 @@ class Profile extends React.Component {
 								<p>
 								
 									<em>My whishlist:</em>
-									{//this.props.user.favorites.map(workart => {
-									//	return (<span>{workart.name}</span>)
-									//})
+
+									{this.props.user.favorites.map(workart => {
+									return (<span>{workart.name}</span>)
+									})
 									}
 								</p>
 
