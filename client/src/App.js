@@ -20,6 +20,7 @@ import Gallery from "./components/Gallery";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import Contact from "./components/Contact";
 
 class App extends Component {
 	state = {
@@ -27,15 +28,14 @@ class App extends Component {
 	};
 
 	fetchUser = () => {
-		console.log("this state user",this.state.user);
+		console.log("this state user", this.state.user);
 		if (!this.state.user._id) {
 			authService
 				.loggedin()
 				.then((data) => {
 					console.log("data", data);
 					this.setState({ user: data });
-					console.log("user after set state", this.state.user)
-
+					console.log("user after set state", this.state.user);
 				})
 				.catch((err) => this.setState({ user: false }));
 		} else {
@@ -68,11 +68,15 @@ class App extends Component {
 
 							<Route exact path="/artists" component={Artists} />
 							<Route exact path="/artists/:id" component={ArtistDetails} />
-							<Route exact path="/artists/:id/workarts" component={WorkartByArtist} />
+							<Route
+								exact
+								path="/artists/:id/workarts"
+								component={WorkartByArtist}
+							/>
 							<Route exact path="/workarts" component={Workarts} />
 							<Route exact path="/workarts/:id" component={WorkartDetails} />
 							<Route exact path="/gallery" component={Gallery} />
-							
+							<Route exact path="/contact" component={Contact} />
 
 							<Route
 								exact

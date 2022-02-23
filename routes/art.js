@@ -2,12 +2,12 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 
 //sending the mail from the localhost
+require("dotenv").config();
 
 // Require the Artist, Workart model in order to interact with the database
 const User = require("../models/User.model");
 const Artist = require("../models/Artist.model");
 const Workart = require("../models/Workart.model");
-
 
 /*                                                                                                 
 ####  ###### #####          #      #  ####  #####      ##   #####  ##### #  ####  #####  ####  
@@ -28,7 +28,6 @@ router.get("/artists", (req, res, next) => {
 			res.status(500).json({ errorMessage: "Failed to load the artists page" });
 		});
 });
-
 
 /*
 #####  ####### #######             #    ######  ####### ###  #####  #######    ######  ####### #######    #    ### #        #####  
@@ -94,7 +93,6 @@ router.get("/workarts/:id", (req, res) => {
 		});
 });
 
-
 /*                                                                                                                                           
 ####  ###### #####          #    #  ####  #####  #    #   ##   #####  #####  ####     #####  #   #      ##   #####  ##### #  ####  ##### 
 #    # #        #            #    # #    # #    # #   #   #  #  #    #   #   #         #    #  # #      #  #  #    #   #   # #        #   
@@ -105,9 +103,9 @@ router.get("/workarts/:id", (req, res) => {
 */
 
 router.get("/artists/:id/workarts", (req, res) => {
-	Workart.find({artist: mongoose.Types.ObjectId(req.params.id)})
+	Workart.find({ artist: mongoose.Types.ObjectId(req.params.id) })
 		.then((workartFromDb) => {
-			res.json({workarts: workartFromDb});
+			res.json({ workarts: workartFromDb });
 		})
 		.catch((error) => {
 			res
@@ -118,6 +116,7 @@ router.get("/artists/:id/workarts", (req, res) => {
 
 //sendgrid? -> heroku.app
 //contact-us (Form)
+
 /*
 router.post("/contact", (req, res, next) => {
   let { email, subject, message } = req.body;
@@ -140,8 +139,6 @@ router.post("/contact", (req, res, next) => {
 });
 */
 
-
-
 /*
 router.get('/favoris', isLoggedIn, (req, res, next) => {
   
@@ -155,10 +152,9 @@ router.get('/favoris', isLoggedIn, (req, res, next) => {
 #  ### #        #            #      #      #   #      #      ###### #    # #    # #####  #   #   #           # 
 #    # #        #            #      # #    #   #      #      #    #  #  #  #    # #   #  #   #   #      #    # 
  ####  ######   #            ###### #  ####    #      #      #    #   ##    ####  #    # #   #   ######  ####  
- */																										   
+ */
 
 router.get("/favorites", (req, res) => {
-
 	Workart.findById()
 		.then((userFavorite) => {
 			res.json({ userFavorite });
@@ -170,7 +166,6 @@ router.get("/favorites", (req, res) => {
 		});
 });
 
-
 /*                                                                                                               
 #####  #    # #####            ##   #####  #####     ######   ##   #    #  ####  #####  # ##### ######  ####  
 #    # #    #   #             #  #  #    # #    #    #       #  #  #    # #    # #    # #   #   #      #      
@@ -179,13 +174,13 @@ router.get("/favorites", (req, res) => {
 #      #    #   #            #    # #    # #    #    #      #    #  #  #  #    # #   #  #   #   #      #    # 
 #       ####    #            #    # #####  #####     #      #    #   ##    ####  #    # #   #   ######  ####  
 */
-																											  
+
 //put -> update
 // it worked with the router.post
 router.put("/add/:workartId/favorite", (req, res) => {
 	const { workart } = req.params.workartId;
 	console.log("WORKART =>>", req.params.workartId);
-	console.log("user in session", req.session.user)
+	console.log("user in session", req.session.user);
 	if (!req.session.user) {
 		res
 			.status(401)
@@ -207,15 +202,14 @@ router.put("/add/:workartId/favorite", (req, res) => {
 		});
 });
 
-
- /*                                                                                                                                  
+/*                                                                                                                                  
 #####  #    # #####          #####  ###### #      ###### ##### ######    ######   ##   #    #  ####  #####  # ##### ######  ####  
 #    # #    #   #            #    # #      #      #        #   #         #       #  #  #    # #    # #    # #   #   #      #      
 #    # #    #   #   #####    #    # #####  #      #####    #   #####     #####  #    # #    # #    # #    # #   #   #####   ####  
 #####  #    #   #            #    # #      #      #        #   #         #      ###### #    # #    # #####  #   #   #           # 
 #      #    #   #            #    # #      #      #        #   #         #      #    #  #  #  #    # #   #  #   #   #      #    # 
 #       ####    #            #####  ###### ###### ######   #   ######    #      #    #   ##    ####  #    # #   #   ######  ####  
-*/																																  
+*/
 
 //params
 router.put("/delete/favorite", (req, res) => {
