@@ -1,3 +1,4 @@
+
   
   header {
     margin-bottom: 30px;
@@ -33,12 +34,18 @@
     border: solid 6px transparent;
     border-radius: 50%;
   }
-  
+  .card:hover .avatar img {
+    border-color: rgb(233, 5, 138);
+  }
   
   footer p {
     color: rgba(0, 0, 0, 0.6);
   }
   
+  footer p a,
+  footer p a:hover {
+    color:rgb(233, 5, 138);
+  }
   
   @media (min-width: 1200px) {
     .container {
