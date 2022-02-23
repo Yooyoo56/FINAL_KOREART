@@ -14,16 +14,12 @@ class Navbar extends React.Component {
 		//		if (this.props.user === false)
 		console.log(this.props.user);
 		return (
-
 			<nav className="nav-style">
-
 				<div className="nav">
-
 					<div className="nav-title">
 						<h1>Kore'Art</h1>
 					</div>
-			
-			
+
 					<div class="nav-menu">
 						<ul>
 							<li>
@@ -32,7 +28,7 @@ class Navbar extends React.Component {
 										Profile
 									</Link>
 								) : (
-									<Link to="/signup" style={{ textDecoration: "none" }}>
+									<Link to="/profile" style={{ textDecoration: "none" }}>
 										Profile
 									</Link>
 								)}
@@ -53,17 +49,14 @@ class Navbar extends React.Component {
 								</Link>
 							</li>
 						</ul>
-					
 					</div>
-
-			</div>
+				</div>
 			</nav>
 		);
 	}
 }
 
 export default Navbar;
-
 
 /*
 <div class="nav">
