@@ -69,7 +69,7 @@ class Contact extends React.Component {
 								>
 									<div className="form-group">
 										<div className="row">
-											<div className="col-md-6">
+											<div className="col-md-3">
 												<input
 													placeholder="Name"
 													id="name"
@@ -80,7 +80,7 @@ class Contact extends React.Component {
 													onChange={this.onNameChange.bind(this)}
 												/>
 											</div>
-											<div className="col-md-6">
+											<div className="col-md-3">
 												<input
 													placeholder="Email"
 													id="email"

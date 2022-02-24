@@ -1,19 +1,17 @@
-import React, { Component, useReducer, useState } from "react";
+import React, { Component, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 class WorkartDetails extends Component {
 	state = {
-		isActive: true,
-		show: true,
+		favorited: null,
+		counter: 0,
 	};
-
 	// monter le composant single artist
 	componentDidMount() {
 		this.getSingleWorkart();
 	}
-
-	// 👨‍🏫
+	//
 	getSingleWorkart = () => {
 		const { params } = this.props.match;
 		axios
@@ -27,65 +25,90 @@ class WorkartDetails extends Component {
 				console.log("Error while fetching workart", err);
 			});
 	};
-
-	buttonDisappear = () => {
-		this.setState(() => ({
-			show: !this.state.show,
-		}));
-	};
-
 	addFavorite = () => {
 		const { params } = this.props.match;
-		axios
-			.put(
-				`http://localhost:5005/add/${params.id}/favorite`,
-				{},
-				{ withCredentials: true }
-			)
+		axios.put(
+			`http://localhost:5005/add/${params.id}/favorite`,
+			{},
+			{ withCredentials: true }
+		);
+		this.setState({ counter: this.state.counter + 1 })
 			.then((res) => console.log(res.data))
-
 			.catch((err) => {
 				console.log(err);
 			});
 	};
-
+	removeFavorite = () => {
+		const { params } = this.props.match;
+		axios.put(
+			`http://localhost:5005/delete/${params.id}/favorite`,
+			{},
+			{ withCredentials: true }
+		);
+		this.setState({ counter: this.state.counter - 1 })
+			.then((res) => console.log(res.data))
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 	render() {
-		console.log("this state==>", this.state);
-
 		return (
 			<div>
-				{/**After clicked the button, it disappeared! */}
-				{this.state.show ? (
-					<div>
-						<button onClick={this.buttonDisappear}>
-							<a href onClick={() => this.addFavorite()}>
-								⭐️
-							</a>
-						</button>{" "}
-					</div>
-				) : null}
-				<div>this is the workart detail</div>
-				{/**Not working properly ==> try to disable the button when I clicked */}
-				{/*this.state.show ? (
-					<div>
-						{" "}
-						{this.state.show ? (
-							<div>
-								<button onClick={() => this.addFavorite()}>Etoile</button>{" "}
+				{/*base du cours
+        <div>this is the artist detail</div>
+        <h1>{this.state.name}</h1>
+        <p>{this.state.description}</p>
+        */}
+
+				{
+					// <button onClick={() => this.addFavorite()}>étoile2</button>
+				}
+				<div id="page">
+					<div className="card">
+						<div className="half half-left">
+							<div className="img-container">
+								<img src={this.state.image} alt="" />
 							</div>
-						) : (
-							<div>
-								<button disabled={true}> Etoile</button>
+						</div>
+						<div className="half half-right">
+							<h2 className="name">{this.state.name}</h2>
+							<p>Hello this is the artist page</p>
+							<h3 className="bio">Infos</h3>
+							<div className="my-button">
+								{this.state.counter === 1 ? (
+									<div>
+										<button onClick={() => this.removeFavorite()}>♥︎</button>
+										<p>
+											The workart has been added to your favorites collection.
+										</p>
+									</div>
+								) : (
+									<button onClick={() => this.addFavorite()}>♡</button>
+								)}
 							</div>
-						)}
+							<p>{this.state.description}</p>
+							<h3 className="location">price</h3>
+							<p></p>
+							{/*
+        <WorkartByArtist getData={() => this.getWorkartByArtist()}/> {/* <== !!!*/}
+							<Link to={"/"}>Homepage</Link>
+						</div>
+						<div class="triangle">
+							<ul>
+								<li>
+									<a href="#" class="fa fa-instagram"></a>
+								</li>
+							</ul>
+							<span>
+								Kore'art is a fictive project for learning purpose only. We have
+								no connection with the artist below
+							</span>
+						</div>
+						<a href="#" class="fa fa-plus"></a>
 					</div>
-				) : null*/}
-				<h1>{this.state.name}</h1>
-				<p>{this.state.description}</p>
-				<Link to={"/"}>Homepage</Link>
+				</div>
 			</div>
 		);
 	}
 }
-
 export default WorkartDetails;

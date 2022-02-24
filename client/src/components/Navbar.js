@@ -48,6 +48,11 @@ class Navbar extends React.Component {
 											Contact
 										</Link>
 									</li>
+									<li>
+										<Link to="/search" style={{ textDecoration: "none" }}>
+											Search
+										</Link>
+									</li>
 								</ul>
 							</div>
 						</div>

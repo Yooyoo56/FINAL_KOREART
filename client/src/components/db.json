@@ -1,0 +1,50 @@
+[
+	{
+		"name": "Reflection",
+		"image": "https://uploads4.wikiart.org/images/do-ho-suh/reflection-2004.jpg",
+		"type": "Ceramique"
+	
+	
+	},
+	{
+		"name": "Karma",
+		"image": "https://uploads8.wikiart.org/images/do-ho-suh/karma-2003.jpg",
+		"type": "Ceramique"
+	},
+	{
+		"name": "The Pulse of the Earth",
+		"image":"http://pointcontemporain.com/wp-content/uploads/2020/04/jeongmoon_choi-le_pouls_de_la_terre-frac_alsace-4.jpg",
+		"type": "NFT"
+	},
+	{
+		"name": "Dialogue linéaire IV",
+		"image":
+			"https://medias.slash-paris.com/media_attachments/images/000/006/286/Jeongmoon_Choi_Dialogue_line_aire_IV_2012_Fil_bleu_sur_papier_21_x_29_7_cm_large.jpg",
+		"type": "Painting"
+		
+	},
+	{
+		"name": "Gamer",
+		"image":
+			"https://artlogic-res.cloudinary.com/w_1200,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/echoecho/images/view/8a03e618521ec9658c53850f65b8a9b9/echofinearts-jeeyoung-lee-gamer-2011.jpg",
+		"type": "NFT"
+	},
+	{
+		"name": "Resurrection",
+		"image":
+			"http://www.lense.fr/wp-content/uploads/2013/12/JYL002-JeeYoungLEE-OPIOM-resurrection_120x96cm_Inkjet-print_2011.jpg",
+		"type": "NFT"
+	},
+	{
+		"name": "aewan #1019",
+		"image":
+			"https://static.designboom.com/weblog/images/images_2/lara/818_images/ham_jin/ham_jin_02.jpg",
+		"type": "Painting"
+	},
+	{
+		"name": "Yellow Pieces",
+		"image":
+			"https://d7hftxdivxxvm.cloudfront.net/?resize_to=fit&width=200&height=149&quality=80&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FmauvIOVfr_1MoEQlzJPRwA%2Flarge.jpg",
+		"type": "Ceramique"
+	}
+]

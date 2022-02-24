@@ -21,6 +21,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Contact from "./components/Contact";
+import Search from "./components/Search";
 
 class App extends Component {
 	state = {
@@ -77,7 +78,7 @@ class App extends Component {
 							<Route exact path="/workarts/:id" component={WorkartDetails} />
 							<Route exact path="/gallery" component={Gallery} />
 							<Route exact path="/contact" component={Contact} />
-
+							<Route exact path="/search" component={Search} />
 							<Route
 								exact
 								path="/signup"
