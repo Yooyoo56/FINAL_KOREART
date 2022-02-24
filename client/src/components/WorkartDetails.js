@@ -15,7 +15,7 @@ class WorkartDetails extends Component {
 	getSingleWorkart = () => {
 		const { params } = this.props.match;
 		axios
-			.get(`http://localhost:5005/workarts/${params.id}`)
+			.get(`${process.env.REACT_APP_APIURL || ""}/api/workarts/${params.id}`)
 			.then((responseFromApi) => {
 				const theWorkart = responseFromApi.data;
 				console.log("the workart", theWorkart);
@@ -28,7 +28,7 @@ class WorkartDetails extends Component {
 	addFavorite = () => {
 		const { params } = this.props.match;
 		axios.put(
-			`http://localhost:5005/add/${params.id}/favorite`,
+			`${process.env.REACT_APP_APIURL || ""}/api/add/${params.id}/favorite`,
 			{},
 			{ withCredentials: true }
 		);
@@ -41,7 +41,7 @@ class WorkartDetails extends Component {
 	removeFavorite = () => {
 		const { params } = this.props.match;
 		axios.put(
-			`http://localhost:5005/delete/${params.id}/favorite`,
+			`${process.env.REACT_APP_APIURL || ""}/api/delete/${params.id}/favorite}`,
 			{},
 			{ withCredentials: true }
 		);

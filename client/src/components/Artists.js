@@ -6,7 +6,7 @@ class Artists extends React.Component {
 	state = { listOfArtists: [] };
 	getAllArtists = () => {
 		axios
-			.get("http://localhost:5005/artists")
+			.get(`${process.env.REACT_APP_APIURL || ""}/api/artists`)
 			.then((responseFromApi) => {
 				console.log("responseFromApi", responseFromApi.data.artists);
 				this.setState({

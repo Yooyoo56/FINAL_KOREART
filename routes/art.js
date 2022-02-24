@@ -240,6 +240,32 @@ router.put("/add/:workartId/favorite", (req, res) => {
 #       ####    #            #####  ###### ###### ######   #   ######    #      #    #   ##    ####  #    # #   #   ######  ####  
 */
 
+router.put("/delete/:workartId/favorite", (req, res) => {
+	const { workart } = req.params.workartId;
+	console.log("WORKART =>>", req.params.workartId);
+	console.log("user in session", req.session.user);
+	if (!req.session.user) {
+		res
+			.status(401)
+			.json({ errorMessage: "User doesn't have any authorisation" });
+	}
+	if (!req.params.workartId) {
+		res.status(401).json({ errorMessage: "Workart error" });
+	}
+	User.findByIdAndUpdate(
+		{ _id: req.session.user._id },
+		{ $pull: { favorites: mongoose.Types.ObjectId(req.params.workartId) } },
+		{ new: true }
+	)
+		.then((updatedUser) => {
+			res.json({ updatedUser });
+		})
+		.catch((error) => {
+			res.status(500).json({ errorMessage: error.message });
+		});
+});
+
+/*
 //params
 router.put("/delete/favorite", (req, res) => {
 	Workart.findByIdAndRemove(req.params.id)
@@ -252,5 +278,6 @@ router.put("/delete/favorite", (req, res) => {
 			res.status().json({ errorMessage: "Error on deleting workart" });
 		});
 });
+*/
 
 module.exports = router;

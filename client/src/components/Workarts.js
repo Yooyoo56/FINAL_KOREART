@@ -5,7 +5,7 @@ class Workarts extends React.Component {
 	state = { listOfWorkarts: [] };
 	getAllWorkarts = () => {
 		axios
-			.get("http://localhost:5005/workarts")
+			.get(`${process.env.REACT_APP_APIURL || ""}/api/workarts`)
 			.then((responseFromApi) => {
 				console.log("responseFromApi", responseFromApi.data.workarts);
 				this.setState({
