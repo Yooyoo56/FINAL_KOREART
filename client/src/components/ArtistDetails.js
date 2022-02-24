@@ -16,7 +16,7 @@ class ArtistDetails extends Component {
   // 👨‍🏫
   getSingleArtist = () => {
       const { params } = this.props.match;
-      axios.get(`http://localhost:5005/artists/${params.id}`)
+      axios.get(`${process.env.REACT_APP_APIURL || ""}/api/artists/${params.id}`)
         .then( responseFromApi =>{
           const theArtist = responseFromApi.data;
           this.setState(theArtist);
