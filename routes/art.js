@@ -146,7 +146,8 @@ router.post("/contact", (req, res, next) => {
 	
 	transporter.sendMail(mail, (err, data) => {
 		if (err) {
-			res.json({
+			console.log(err)
+			res.status(500).json({
 				status: "fail",
 			});
 		} else {
