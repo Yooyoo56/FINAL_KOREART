@@ -2,12 +2,17 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 
 //sending the mail from the localhost
+//const mailer = require("/config/mailer.config");
+const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
+const nodemailer = require("nodemailer");
 
 // Require the Artist, Workart model in order to interact with the database
 const User = require("../models/User.model");
 const Artist = require("../models/Artist.model");
 const Workart = require("../models/Workart.model");
+const { getMaxListeners } = require("../models/User.model");
 
 /*                                                                                                 
 ####  ###### #####          #      #  ####  #####      ##   #####  ##### #  ####  #####  ####  
@@ -114,36 +119,60 @@ router.get("/artists/:id/workarts", (req, res) => {
 		});
 });
 
-//sendgrid? -> heroku.app
-//contact-us (Form)
+/* 
+#    #   ##   # #      
+##  ##  #  #  # #      
+# ## # #    # # #      
+#    # ###### # #      
+#    # #    # # #      
+#    # #    # # ######  (only worked with Gmail account!!)
+*/
 
-/*
-router.post("/contact", (req, res, next) => {
-  let { email, subject, message } = req.body;
-  let transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: process.env.MAIL_USERNAME, // need to define on the .env
-      pass: process.env.MAIL_PASSWORD  // need to define on the .env
-    }
-  });
-  transporter.sendMail({
-    from: '"message from website mycoach" <questions@koreart.com>',
-    to: email, 
-    subject: subject, 
-    text: message,
-    html:`<b>${message}</b>`
-  })
-  .then(info => res.render('message', {email, subject, message, info}))
-  .catch(error => console.log(error));
+const transporter = nodemailer.createTransport({
+	host: "smtp.gmail.com", //replace with your email provider
+	port: 587,
+	auth: {
+		user: process.env.MAIL_USERNAME,
+		pass: process.env.MAIL_PASSWORD,
+	},
 });
-*/
 
-/*
-router.get('/favoris', isLoggedIn, (req, res, next) => {
-  
-  const userid = req.session.user._id
-*/
+// verify connection configuration
+transporter.verify(function (error, success) {
+	if (error) {
+		console.log(error);
+	} else {
+		console.log("Server is ready to take our messages 🥐");
+	}
+});
+
+router.post("/contact", (req, res, next) => {
+	var name = req.body.name;
+	var email = req.body.email;
+	var subject = req.body.subject;
+	var message = req.body.message;
+	console.log("req==========>", req);
+	console.log("res==========>", res);
+
+	var mail = {
+		from: '"Mail from website koreart" <questions@koreart.com>',
+		to: email, // receiver email,
+		subject: subject,
+		text: message,
+	};
+
+	transporter.sendMail(mail, (err, data) => {
+		if (err) {
+			res.json({
+				status: "fail",
+			});
+		} else {
+			res.json({
+				status: "success",
+			});
+		}
+	});
+});
 
 /*                                                                                                                
 ####  ###### #####          #      #  ####  #####    ######   ##   #    #  ####  #####  # ##### ######  ####  

@@ -1,5 +1,5 @@
-// configs/mailer.config.js
-/*
+// config/mailer.config.js
+
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport(process.env.SMTP_URI);
 
@@ -10,4 +10,3 @@ transporter
 	.catch((err) => console.error("oops mailer", err));
 
 module.exports = transporter;
-*/

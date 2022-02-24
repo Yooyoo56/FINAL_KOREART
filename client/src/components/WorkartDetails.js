@@ -80,7 +80,7 @@ class WorkartDetails extends Component {
 						)}
 					</div>
 				) : null*/}
-				)<h1>{this.state.name}</h1>
+				<h1>{this.state.name}</h1>
 				<p>{this.state.description}</p>
 				<Link to={"/"}>Homepage</Link>
 			</div>
