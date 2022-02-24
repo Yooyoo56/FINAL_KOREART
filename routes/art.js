@@ -2,7 +2,7 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 
 //sending the mail from the localhost
-//const mailer = require("/config/mailer.config");
+const transporter = require("../config/mailer.config");
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -128,24 +128,6 @@ router.get("/artists/:id/workarts", (req, res) => {
 #    # #    # # ######  (only worked with Gmail account!!)
 */
 
-const transporter = nodemailer.createTransport({
-	host: "smtp.gmail.com", //replace with your email provider
-	port: 587,
-	auth: {
-		user: process.env.MAIL_USERNAME,
-		pass: process.env.MAIL_PASSWORD,
-	},
-});
-
-// verify connection configuration
-transporter.verify(function (error, success) {
-	if (error) {
-		console.log(error);
-	} else {
-		console.log("Server is ready to take our messages 🥐");
-	}
-});
-
 router.post("/contact", (req, res, next) => {
 	var name = req.body.name;
 	var email = req.body.email;
@@ -161,6 +143,7 @@ router.post("/contact", (req, res, next) => {
 		text: message,
 	};
 
+	
 	transporter.sendMail(mail, (err, data) => {
 		if (err) {
 			res.json({

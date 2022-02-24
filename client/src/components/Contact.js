@@ -32,7 +32,7 @@ class Contact extends React.Component {
 		e.preventDefault();
 		axios({
 			method: "POST",
-			url: `${process.env.REACT_APP_APIURL || ""}/api/artists`,
+			url: `${process.env.REACT_APP_APIURL || ""}/api/contact`,
 			data: this.state,
 		}).then((response) => {
 			console.log("response=====>", response);
