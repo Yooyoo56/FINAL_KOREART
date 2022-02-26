@@ -44,7 +44,11 @@ class Profile extends Component {
 
 	render() {
 		if (this.props.user === false)
-			return "You should loggedin to aceess your profile!";
+			return (
+				<h3 className="auth-h3">
+					You should loggedin to aceess your profile!"
+				</h3>
+			);
 		else {
 			if (!this.props.user._id) return "loading...";
 		}

@@ -17,12 +17,9 @@ class Navbar extends React.Component {
 		}
 	}
 
-
 	updateUser = (data) => {
 		this.setState({ user: data });
 	};
-
-
 
 	render() {
 		console.log("the user is======>", this.props.user);

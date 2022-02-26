@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Input, Footer, Card, CardBody, CardTitle } from "mdbreact";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -37,17 +36,15 @@ class Search extends React.Component {
 		});
 
 		return (
-			<div>
-				<div className="Search">
-					Search Artworks
-					<Input
-						label="Search Arts"
+			<div className="first-section">
+				<div className="section">
+					<h2 className="search-h2"> Search Arts</h2>
+					<input
+						placeholder="Search artworks ..."
 						icon="search"
 						onChange={this.onchange}
-					></Input>
-				</div>
-				<div className="container-list">
-					<div className="search-container">
+					></input>
+					<div className="container-list">
 						{searchArts.map((workart) => {
 							return (
 								<div key={workart._id}>
