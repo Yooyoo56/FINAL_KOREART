@@ -1,7 +1,7 @@
 // components//auth-service.js
 // this page is to linked to the back-end(server) side and the client side??
 
-import axios from "axios";
+import axios from 'axios';
 
 export default {
 	service: axios.create({
@@ -9,7 +9,7 @@ export default {
 		withCredentials: true,
 		//  baseURL: `${process.env.REACT_APP_APIURL || ""}/auth`,
 	}),
-
+	
 	login(email, password) {
 		return this.service
 			.post("/sessions", { email, password })
