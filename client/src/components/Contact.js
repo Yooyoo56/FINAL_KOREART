@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
+import "./Login.css";
 
 class Contact extends React.Component {
 	constructor(props) {
@@ -50,18 +51,19 @@ class Contact extends React.Component {
 	}
 	render() {
 		return (
-			<div className="section">
-				<div className="container">
+			<div className="first-section">
+				<div className="second-section">
 					<div className="row">
 						<div className="col-md-12">
 							<div className="section-title">
-								<h2 className="title">Contact Us</h2>
-								<p>
-									Let us know what you think! In order to provide better
-									service, please do not hesitate to give us your feedback.
+								<h1 className="auth-h1">Contact Us</h1>
+								<p className="description-p">
+									Let us know what you think! In order to provide better service
+									<br></br> please do not hesitate to give us your feedback.
 									Thank you.
 								</p>
-								<hr />
+								<br></br>
+
 								<form
 									id="contact-form"
 									onSubmit={this.submitEmail.bind(this)}
@@ -70,6 +72,7 @@ class Contact extends React.Component {
 									<div className="form-group">
 										<div className="row">
 											<div className="col-md-3">
+												<em>Name</em>
 												<input
 													placeholder="Name"
 													id="name"
@@ -81,6 +84,8 @@ class Contact extends React.Component {
 												/>
 											</div>
 											<div className="col-md-3">
+												<em>Email</em>
+
 												<input
 													placeholder="Email"
 													id="email"
@@ -95,6 +100,7 @@ class Contact extends React.Component {
 										</div>
 									</div>
 									<div className="form-group">
+										<em>Subject</em>
 										<input
 											placeholder="Subject"
 											id="subject"
@@ -106,20 +112,21 @@ class Contact extends React.Component {
 										/>
 									</div>
 									<div className="form-group">
+										<em>Message</em>
 										<textarea
 											placeholder="Message"
 											id="message"
+											type="text"
 											className="form-control"
-											rows="1"
 											required
 											value={this.state.message}
 											onChange={this.onMsgChange.bind(this)}
 										/>
 									</div>
-									<button type="submit" className="primary-btn submit">
-										Submit
-									</button>
 								</form>
+								<button className="btn-login" type="submit">
+									Submit
+								</button>
 							</div>
 						</div>
 					</div>

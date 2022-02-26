@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Popin from "../Popin.js";
 import authService from "./auth-service.js";
+import "./Login.css";
 
 class Signup extends React.Component {
 	state = {
@@ -26,18 +27,29 @@ class Signup extends React.Component {
 			)
 			// 2. then, update with user infos
 			.then((data) => {
-				console.log('ouiiiii', data)
+				console.log("ouiiiii", data);
 				this.setState({ error: "" });
 
 				// maj le state du user avec les infos retournees par le signup
-				this.props.updateUser(data)
+				this.props.updateUser(data);
 
 				this.props.history.push("/profile");
 			})
-			.catch((err) => {
-				console.log('noooooo')
-				this.setState({ error: err.response.data.errorMessage });
+
+			// changed the catch message but I don't think the problem came here.
+			.catch((error) => {
+				console.log("Errrorrrr that I dunno");
+				if (!error.response) {
+					// network error
+					this.errorStatus = "Error: Network Error";
+				} else {
+					this.errorStatus = error.response.data.errorMessage;
+				}
 			});
+		//.catch((err) => {
+		//	console.log('noooooo')
+		//	this.setState({ error: err.response.data.errorMessage });
+		//});
 	};
 
 	handleChange = (event) => {
@@ -47,86 +59,91 @@ class Signup extends React.Component {
 
 	render() {
 		return (
-			<Popin
-				one={
-					<>
-						<h1>Sign up</h1>
+			<div className="first-section">
+				<div className="second-section">
+					<Popin
+						one={
+							<>
+								<h1 className="auth-h1">Sign up</h1>
 
-						{this.state.error && <h2 className="error">{this.state.error}</h2>}
-						<form onSubmit={this.handleSubmit}>
-							<p>
-								<label>
-									<em>Email</em>
-									<input
-										type="text"
-										name="email"
-										value={this.state.email}
-										onChange={this.handleChange}
-									/>
-								</label>
-							</p>
-							<p>
-								<label>
-									<em>Firstname</em>
-									<input
-										type="text"
-										name="firstname"
-										value={this.state.firstname}
-										onChange={this.handleChange}
-									/>
-								</label>
-							</p>
-							<p>
-								<label>
-									<em>Password</em>
-									<input
-										type="password"
-										name="password"
-										value={this.state.password}
-										onChange={this.handleChange}
-									/>
-								</label>
-							</p>
-							<p>
-								<label>
-									<em>City</em>
-									<input
-										type="text"
-										name="city"
-										value={this.state.city}
-										onChange={this.handleChange}
-									/>
-								</label>
-							</p>
-						</form>
-
-						<p>
+								{this.state.error && (
+									<h2 className="error">{this.state.error}</h2>
+								)}
+								<form onSubmit={this.handleSubmit}>
+									<p>
+										<label>
+											<em>Email</em>
+											<input
+												type="text"
+												name="email"
+												value={this.state.email}
+												onChange={this.handleChange}
+												placeholder="example@jdoe.com"
+											/>
+										</label>
+									</p>
+									<p>
+										<label>
+											<em>Firstname</em>
+											<input
+												type="text"
+												name="firstname"
+												value={this.state.firstname}
+												onChange={this.handleChange}
+												placeholder="John"
+											/>
+										</label>
+									</p>
+									<p>
+										<label>
+											<em>Password</em>
+											<input
+												type="password"
+												name="password"
+												value={this.state.password}
+												onChange={this.handleChange}
+												placeholder="your password"
+											/>
+										</label>
+									</p>
+									<p>
+										<label>
+											<em>City</em>
+											<input
+												type="text"
+												name="city"
+												value={this.state.city}
+												onChange={this.handleChange}
+												placeholder="your city"
+											/>
+										</label>
+									</p>
+								</form>
+								<button className="btn-login" onClick={this.handleSubmit}>
+									Create the account
+								</button>
+								<p>
+									<small>
+										Hello there, If you already have an account, you can login
+										from <Link to="/login">here</Link>
+									</small>
+								</p>
+							</>
+						}
+						two={
+							<>
+								<p>
+									{/**
 							<small>
-								If you already have an account, you can login from{" "}
-								<Link to="/login">here</Link>
-							</small>
-						</p>
-					</>
-				}
-				two={
-					<>
-						<p>
-							<strong>Hello!!</strong>
-							Welcome to KoreArt profile!
-						</p>
-
-						<p>
-							<small>
-								If you signup, you agree with all our terms and conditions where
-								we can do whatever we want with the data!
-							</small>
-							<button className="btn" onClick={this.handleSubmit}>
-								Create the account
-							</button>
-						</p>
-					</>
-				}
-			/>
+										If you signup, you agree with all our terms and conditions
+										where we can do whatever we want with the data!
+									</small> */}
+								</p>
+							</>
+						}
+					/>
+				</div>
+			</div>
 		);
 	}
 }

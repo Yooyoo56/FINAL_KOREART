@@ -6,7 +6,6 @@ const transporter = require("../config/mailer.config");
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const nodemailer = require("nodemailer");
 
 // Require the Artist, Workart model in order to interact with the database
 const User = require("../models/User.model");
@@ -143,10 +142,9 @@ router.post("/contact", (req, res, next) => {
 		text: message,
 	};
 
-	
 	transporter.sendMail(mail, (err, data) => {
 		if (err) {
-			console.log(err)
+			console.log(err);
 			res.status(500).json({
 				status: "fail",
 			});
