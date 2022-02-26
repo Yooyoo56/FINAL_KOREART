@@ -2,6 +2,7 @@
 // https://www.npmjs.com/package/mongoose
 const mongoose = require("mongoose");
 
+
 // take the model for the mongodb
 const Artist = require("../models/Artist.model");
 const Workart = require("../models/Workart.model");
@@ -21,7 +22,7 @@ mongoose
 	.catch((err) => {
 		console.error("Error connecting to mongo: ", err);
 	});
-
+/*
 //creation of the artists on MongoDB
 const artists = [
 	{
@@ -176,3 +177,4 @@ Workart.create(workarts)
 		console.log("Error ==========>", err);
 		next(err);
 	});
+*/
