@@ -137,7 +137,7 @@ router.post("/contact", (req, res, next) => {
 
 	var mail = {
 		from: '"Mail from website koreart" <koreart@free.fr>',
-		to: email, // receiver email,
+		to: "koreart@free.fr", // receiver email,
 		subject: subject,
 		text: message,
 	};
