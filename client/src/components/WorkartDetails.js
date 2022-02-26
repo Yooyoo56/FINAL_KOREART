@@ -31,9 +31,14 @@ class WorkartDetails extends Component {
 			`${process.env.REACT_APP_APIURL || ""}/api/add/${params.id}/favorite`,
 			{},
 			{ withCredentials: true }
-		);
-		this.setState({ counter: this.state.counter + 1 })
-			.then((res) => console.log(res.data))
+		)
+
+			.then((res) => {
+        console.log(res.data)
+        this.setState({ counter: this.state.counter + 1 })
+        this.props.updateUser(res.data.updatedUser)
+      })
+
 			.catch((err) => {
 				console.log(err);
 			});
@@ -41,7 +46,7 @@ class WorkartDetails extends Component {
 	removeFavorite = () => {
 		const { params } = this.props.match;
 		axios.put(
-			`${process.env.REACT_APP_APIURL || ""}/api/delete/${params.id}/favorite}`,
+			`${process.env.REACT_APP_APIURL || ""}/api/delete/${params.id}/favorite`,
 			{},
 			{ withCredentials: true }
 		);
@@ -51,6 +56,7 @@ class WorkartDetails extends Component {
 				console.log(err);
 			});
 	};
+
 	render() {
 		return (
 			<div>
@@ -96,7 +102,7 @@ class WorkartDetails extends Component {
 						<div class="triangle">
 							<ul>
 								<li>
-									<a href="#" class="fa fa-instagram"></a>
+
 								</li>
 							</ul>
 							<span>
@@ -104,7 +110,7 @@ class WorkartDetails extends Component {
 								no connection with the artist below
 							</span>
 						</div>
-						<a href="#" class="fa fa-plus"></a>
+
 					</div>
 				</div>
 			</div>

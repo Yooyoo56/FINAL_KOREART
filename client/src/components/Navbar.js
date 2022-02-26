@@ -17,35 +17,18 @@ class Navbar extends React.Component {
 		}
 	}
 
-	fetchUser = () => {
-		console.log("this state user", this.state.user);
-		if (!this.state.user._id) {
-			authService
-				.loggedin()
-				.then((data) => {
-					console.log("data", data);
-					this.setState({ user: data });
-					console.log("navabar=====> user after set state", this.state.user);
-				})
-				.catch((err) => this.setState({ user: false }));
-		} else {
-			console.log("user already in the state");
-		}
-	};
 
 	updateUser = (data) => {
 		this.setState({ user: data });
 	};
 
-	componentDidMount() {
-		this.fetchUser();
-	}
+
 
 	render() {
-		console.log("the user is======>", this.state.user);
+		console.log("the user is======>", this.props.user);
 
 		// if the user is not logged in
-		if (this.state.user === false) {
+		if (!this.props.user) {
 			return (
 				<div>
 					<nav className="nav-style">

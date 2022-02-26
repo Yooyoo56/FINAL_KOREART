@@ -59,7 +59,9 @@ class App extends Component {
 					<div className="App" data-route={props.location.pathname}>
 						{" "}
 						{/* data-route="/" allow us to style pages */}
-						<Navbar />
+						<Navbar 
+							user={this.state.user}
+						/>
 						<Switch>
 							<Route
 								exact
@@ -75,7 +77,15 @@ class App extends Component {
 								component={WorkartByArtist}
 							/>
 							<Route exact path="/workarts" component={Workarts} />
-							<Route exact path="/workarts/:id" component={WorkartDetails} />
+
+							<Route exact path="/workarts/:id" 
+							component={WorkartDetails} 
+								/* render={(props) => ( */
+								/*<WorkartDetails updateUser={this.updateUser} history={props.history} {...props} /> !}*/
+								/* )} */
+							
+							/>
+
 							<Route exact path="/gallery" component={Gallery} />
 							<Route exact path="/contact" component={Contact} />
 							<Route exact path="/search" component={Search} />
