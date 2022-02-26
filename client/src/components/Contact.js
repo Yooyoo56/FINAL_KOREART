@@ -123,10 +123,10 @@ class Contact extends React.Component {
 											onChange={this.onMsgChange.bind(this)}
 										/>
 									</div>
+									<button className="btn-login" type="submit">
+										Submit
+									</button>
 								</form>
-								<button className="btn-login" type="submit">
-									Submit
-								</button>
 							</div>
 						</div>
 					</div>

@@ -38,15 +38,6 @@ class Profile extends Component {
 			});
 	};
 
-	loadMore = () => {
-		this.setState(
-			(prevState) => ({
-				scrolling: true,
-			}),
-			this.loadData
-		);
-	};
-
 	componentDidMount() {
 		this.loadData();
 	}
@@ -58,10 +49,10 @@ class Profile extends Component {
 			if (!this.props.user._id) return "loading...";
 		}
 		return (
-			<div className="clearfix">
-				<div className="row">
+			<div className="first-section">
+				<div className="the-section">
 					{this.state.data.map((data) => (
-						<div className="col-md-4 animated fadeIn" key={data.id.value}>
+						<div className="second-section" key={data.id.value}>
 							<div className="card">
 								<div className="card-body">
 									<div className="avatar">
@@ -76,43 +67,47 @@ class Profile extends Component {
 										<Popin
 											one={
 												<>
-													<h1>Profile</h1>
-
-													<h5 className="card-title">
-														<p>
-															<em>Name:</em>
+													<h1 className="auth-h1">Profile</h1>
+													<label>
+														<h5 className="card-title">
+															<p>
+																<em>Name: </em>
+																<span>
+																	{this.uppercase(this.props.user.firstname)}
+																</span>
+															</p>
+														</h5>
+														<p className="card-text">
+															<em>Email: </em>
 															<span>
-																{this.uppercase(this.props.user.firstname)}
+																{this.uppercase(this.props.user.email)}
 															</span>
 														</p>
-													</h5>
-													<p className="card-text">
-														<em>Email:</em>
-														<span>{this.uppercase(this.props.user.email)}</span>
-													</p>
 
-													<p className="card-text">
-														<em>City:</em>
-														<span>{this.uppercase(this.props.user.city)}</span>
-													</p>
+														<p className="card-text">
+															<em>City: </em>
+															<span>
+																{this.uppercase(this.props.user.city)}
+															</span>
+														</p>
 
-													<p className="card-text">
-														<em>My whishlist:</em>
-
-														{this.props.user.favorites.map((workart) => {
-															return <span>{workart.name}</span>;
-														})}
-													</p>
-
+														<p className="card-text">
+															<em>My whishlist: </em>
+															<ul>
+																{this.props.user.favorites.map((workart) => {
+																	return <li>{workart.name}</li>;
+																})}
+															</ul>
+														</p>
+													</label>
 													<div className="cta">
 														<button
-															className="btn logout"
+															className="btn-logout"
 															onClick={this.logout}
 														>
 															logout
 														</button>
 													</div>
-													<div></div>
 												</>
 											}
 										/>

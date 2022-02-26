@@ -1,27 +1,11 @@
 
-  .fetch-button {
-    min-width: 150px;
-    margin-bottom: 30px;
-    padding: 15px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: rgb(54, 202, 165);
-    border: none;
-    color: rgb(15, 66, 54);
-    transition: all 0.5s;
-  }
-  
-  .fetch-button:hover {
-    background-color: rgb(40, 209, 209);
-  }
-  
-  .books {
+  .container-list {
     display: flex;
     flex-wrap: wrap;
+    font-family: poppins;
   }
   
-  .book {
+  .box-img{
     background: #fff;
     position: relative;
     border-radius: 5px;
@@ -31,6 +15,7 @@
     color: #333;
     flex-basis: width;
     background-color: rgb(165, 230, 230);
+
   }
   
   .book h3 {
