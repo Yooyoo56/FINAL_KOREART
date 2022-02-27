@@ -9,6 +9,7 @@
 */
 
 *{
+    font-family: "Poppins", sans-serif;
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
@@ -25,12 +26,25 @@
     align-items: center;
 }
 
+.nav a:visited{
+    color:rgb(233, 5, 138);
+}
+
 .nav-title{
     width: 30%;
     background: rgb(233, 5, 138);
     padding: 16px 40px;
     text-align: center;
 
+}
+.homeTitle{
+    text-decoration: none; 
+    color:black;
+}
+
+.homeTitle:visited{
+    text-decoration: none; 
+    color: black;
 }
 
 a:visited { 
@@ -39,16 +53,19 @@ a:visited {
    }
    
 
+
 .nav-menu{
     width: 70%;
 }
 
 .nav-menu ul{
+    text-decoration: none; 
     display: flex;
     justify-content: flex-end;
 }
 
 .nav-menu ul li{
+    text-decoration: none; 
     padding: 10px 20px;
     color: #ccc;
     font-size: 20px;

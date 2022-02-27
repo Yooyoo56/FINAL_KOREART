@@ -61,11 +61,13 @@ class ArtistDetails extends Component {
 							<Link to={"/"}>Homepage</Link>
 						</div>
 						<div class="triangle">
+							{/*
 							<ul>
 								<li>
 									<a href="#" class="fa fa-instagram"></a>
 								</li>
 							</ul>
+						*/}
 							<span>
 								Kore'art is a fictive project for learning purpose only. We have
 								no connection with the artist below

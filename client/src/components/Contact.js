@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
-import "./Login.css";
+import "./Contact.css";
 
 class Contact extends React.Component {
 	constructor(props) {
@@ -54,7 +54,7 @@ class Contact extends React.Component {
 			<div className="first-section">
 				<div className="second-section">
 					<div className="row">
-						<div className="col-md-12">
+						<div className="col-md">
 							<div className="section-title">
 								<h1 className="auth-h1">Contact Us</h1>
 								<p className="description-p">
@@ -71,7 +71,7 @@ class Contact extends React.Component {
 								>
 									<div className="form-group">
 										<div className="row">
-											<div className="col-md-3">
+											<div className="col-md">
 												<em>Name</em>
 												<input
 													placeholder="Name"
@@ -83,9 +83,8 @@ class Contact extends React.Component {
 													onChange={this.onNameChange.bind(this)}
 												/>
 											</div>
-											<div className="col-md-3">
+											<div className="form-group">
 												<em>Email</em>
-
 												<input
 													placeholder="Email"
 													id="email"
