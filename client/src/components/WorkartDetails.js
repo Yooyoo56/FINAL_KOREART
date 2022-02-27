@@ -27,19 +27,21 @@ class WorkartDetails extends Component {
 	};
 	addFavorite = () => {
 		const { params } = this.props.match;
-		axios.put(
-			`${process.env.REACT_APP_APIURL || ""}/api/add/${params.id}/favorite`,
-			{},
-			{ withCredentials: true }
-		)
+		axios
+			.put(
+				`${process.env.REACT_APP_APIURL || ""}/api/add/${params.id}/favorite`,
+				{},
+				{ withCredentials: true }
+			)
 
 			.then((res) => {
-        console.log(res.data)
-        this.setState({ counter: this.state.counter + 1 })
-        this.props.updateUser(res.data.updatedUser)
-      })
-
+				console.log(res.data);
+				this.setState({ counter: this.state.counter + 1 });
+				//		this.props.updateUser(res.data.updatedUser);
+				alert("Artwork is on your wishlist!");
+			})
 			.catch((err) => {
+				alert("Need to login to add artwork as favorite!");
 				console.log(err);
 			});
 	};
@@ -70,7 +72,7 @@ class WorkartDetails extends Component {
 					// <button onClick={() => this.addFavorite()}>étoile2</button>
 				}
 				<div id="page">
-					<div className="card">
+					<div className="card-class">
 						<div className="half half-left">
 							<div className="img-container">
 								<img src={this.state.image} alt="" />
@@ -101,16 +103,13 @@ class WorkartDetails extends Component {
 						</div>
 						<div class="triangle">
 							<ul>
-								<li>
-
-								</li>
+								<li></li>
 							</ul>
 							<span>
 								Kore'art is a fictive project for learning purpose only. We have
 								no connection with the artist below
 							</span>
 						</div>
-
 					</div>
 				</div>
 			</div>

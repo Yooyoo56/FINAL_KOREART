@@ -1,0 +1,14 @@
+.d-block {
+    width: 100vw;
+    height: 90vh;
+    filter: saturate(0);
+}
+.d-block img {
+    width: 100vw;
+}
+h3 {
+    font-size: 1.7rem;
+    background: linear-gradient(#F83487, #FE8361);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

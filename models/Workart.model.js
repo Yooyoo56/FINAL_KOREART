@@ -8,7 +8,13 @@ const workartSchema = new Schema(
 		image: String,
 		type: {
 			type: String,
-			enum: ["Painting", "Ceramique", "NFT"],
+			enum: [
+				"Painting",
+				"Ceramique",
+				"NFT",
+				"Immersive installation",
+				"Drawing",
+			],
 		},
 		price_workart: {
 			value: Number,

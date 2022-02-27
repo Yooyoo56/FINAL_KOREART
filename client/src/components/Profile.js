@@ -65,6 +65,12 @@ class Profile extends Component {
 											className="card-img-top"
 											alt=""
 										/>
+
+										<img
+											src={data.picture.large}
+											className="card-img-top"
+											alt=""
+										/>
 									</div>
 
 									<>

@@ -16,7 +16,6 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Workart = require("../models/Workart.model");
 
-
 /*
                                                                                  
   ####  ###### #####          #       ####   ####   ####  ###### #####  # #    # 
@@ -31,19 +30,18 @@ const Workart = require("../models/Workart.model");
 router.get("/loggedin", (req, res, next) => {
 	if (!req.user) {
 		res.status(403).json({ errorMessage: "Not authorized!" });
-		return
+		return;
 	}
 
 	User.findById(req.user._id)
-		.populate('favorites')
-		.then(userFromDB => {
-			res.json(userFromDB) // dernieres infos a jour du user
+		.populate("favorites")
+		.then((userFromDB) => {
+			res.json(userFromDB); // dernieres infos a jour du user
 		})
-		.catch(err => {
+		.catch((err) => {
 			console.log(err);
-			next(err)
-		})
-	
+			next(err);
+		});
 });
 
 /*
@@ -62,7 +60,6 @@ router.get("/loggedin", (req, res) => {
 */
 
 ////////////////////// signup page ===> /users///////////////////////////
-
 
 /*
                                                                     

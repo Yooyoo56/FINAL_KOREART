@@ -59,9 +59,7 @@ class App extends Component {
 					<div className="App" data-route={props.location.pathname}>
 						{" "}
 						{/* data-route="/" allow us to style pages */}
-						<Navbar 
-							user={this.state.user}
-						/>
+						<Navbar user={this.state.user} />
 						<Switch>
 							<Route
 								exact
@@ -78,12 +76,13 @@ class App extends Component {
 							/>
 							<Route exact path="/workarts" component={Workarts} />
 
-							<Route exact path="/workarts/:id" 
-							component={WorkartDetails} 
+							<Route
+								exact
+								path="/workarts/:id"
+								component={WorkartDetails}
 								/* render={(props) => ( */
 								/*<WorkartDetails updateUser={this.updateUser} history={props.history} {...props} /> !}*/
 								/* )} */
-							
 							/>
 
 							<Route exact path="/gallery" component={Gallery} />
