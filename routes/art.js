@@ -196,6 +196,7 @@ router.put("/add/:workartId/favorite", (req, res) => {
 		res
 			.status(401)
 			//quand user n'est pas loggé :
+
 			.json({ errorMessage: "User doesn't have any authorisation" });
 	}
 	if (!req.params.workartId) {
