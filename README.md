@@ -29,5 +29,6 @@
 - Not loggedIn user => redirect to the login / signup page
 
 5. deploy Heroku
+   https://kore-art.herokuapp.com/
 
 6. Css => bulma / hard code

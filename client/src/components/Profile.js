@@ -2,6 +2,7 @@ import Popin from "../Popin.js";
 import authService from "./auth-service.js";
 import React, { Component } from "react";
 import "./Profile.css";
+import profileImg from "../components/carousel/profile.png";
 
 class Profile extends Component {
 	state = {
@@ -54,23 +55,18 @@ class Profile extends Component {
 		}
 		return (
 			<div className="first-section">
-				<div className="the-section">
+				<div className="second-section">
 					{this.state.data.map((data) => (
-						<div className="second-section" key={data.id.value}>
-							<div className="card">
+						<div key={data.id.value}>
+							<div className="Nocard">
 								<div className="card-body">
 									<div className="avatar">
-										<img
+										<img src={profileImg}></img>
+										{/*<img
 											src={data.picture.large}
 											className="card-img-top"
 											alt=""
-										/>
-
-										<img
-											src={data.picture.large}
-											className="card-img-top"
-											alt=""
-										/>
+										/>*/}
 									</div>
 
 									<>
@@ -103,7 +99,7 @@ class Profile extends Component {
 
 														<p className="card-text">
 															<em>My whishlist: </em>
-															<ul>
+															<ul className="profile-ul">
 																{this.props.user.favorites.map((workart) => {
 																	return <li>{workart.name}</li>;
 																})}
