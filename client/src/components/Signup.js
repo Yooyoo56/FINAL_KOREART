@@ -36,20 +36,10 @@ class Signup extends React.Component {
 				this.props.history.push("/profile");
 			})
 
-			// changed the catch message but I don't think the problem came here.
-			.catch((error) => {
-				console.log("Errrorrrr that I dunno");
-				if (!error.response) {
-					// network error
-					this.errorStatus = "Error: Network Error";
-				} else {
-					this.errorStatus = error.response.data.errorMessage;
-				}
+			.catch((err) => {
+				console.log("noooooo");
+				this.setState({ error: err.response.data.errorMessage });
 			});
-		//.catch((err) => {
-		//	console.log('noooooo')
-		//	this.setState({ error: err.response.data.errorMessage });
-		//});
 	};
 
 	handleChange = (event) => {

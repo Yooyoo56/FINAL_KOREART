@@ -25,16 +25,8 @@ class Login extends React.Component {
 				this.props.history.push("/profile");
 				console.log("after update user", this.props.history);
 			})
-			// changed the catch message but I don't think the problem came here.
-			.catch((error) => {
-				if (!error.response) {
-					// network error
-					this.errorStatus = "Error: Network Error";
-				} else {
-					this.errorStatus = error.response.data.errorMessage;
-				}
-			});
-		//.catch((err) => this.setState({ error: err.response.data.errorMessage }));
+
+			.catch((err) => this.setState({ error: err.response.data.errorMessage }));
 	};
 
 	handleChange = (event) => {

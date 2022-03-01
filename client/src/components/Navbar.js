@@ -80,7 +80,12 @@ class Navbar extends React.Component {
 					<nav className="nav-style">
 						<div className="nav">
 							<div className="nav-title">
-								<h1>Kore'Art</h1>
+								<h1>
+									{" "}
+									<a className="homeTitle" href="/">
+										Kore'Art
+									</a>
+								</h1>
 							</div>
 
 							<div class="nav-menu">
