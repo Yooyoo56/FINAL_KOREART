@@ -163,7 +163,6 @@ router.post("/sessions", isLoggedOut, (req, res, next) => {
 	}
 	if (!password) {
 		return res
-			.populate("favorites")
 			.status(400)
 			.json({ errorMessage: "Please provide your password." });
 	}
@@ -178,6 +177,9 @@ router.post("/sessions", isLoggedOut, (req, res, next) => {
 
 	// Search the database for a user with the username submitted in the form
 	User.findOne({ email })
+		// !!!!!!!!!refresh the page!!!!!!!!!!!!!!!!
+		// need to add the  !!!!!!!!!.populate("favorites")!!!!!!!!!!!!!!!
+		.populate("favorites")
 		.then((user) => {
 			// If the user isn't found, send the message that user provided wrong credentials
 			if (!user) {
