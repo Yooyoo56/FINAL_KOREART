@@ -108,13 +108,21 @@ class Profile extends Component {
 														</p>
 
 														<p className="card-text">
-															<em>My whishlist: </em>
+															<em>My wishlist: </em>
 															<ul className="profile-ul">
 																{/* Only display 10 favorites - wishlist */}
 																{this.props.user.favorites
 																	.slice(0, 10)
+																	//image de workart
 																	.map((workart) => {
-																		return <li>{workart.name}</li>;
+																		return (
+																			<div key={workart._id}>
+																				<div className="workart-div">
+																					<img src={workart.image} alt=""></img>
+																					<li>{workart.name}</li>
+																				</div>
+																			</div>
+																		);
 																	})}
 															</ul>
 														</p>

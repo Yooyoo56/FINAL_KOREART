@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import WorkartByArtist from "./WorkartByArtist";
 
 import "./ArtistDetails.scss";
 
 class ArtistDetails extends Component {
-	state = {};
+	state = {
+		aristsWorkart: [],
+	};
 
 	// monter le composant single artist
 	componentDidMount() {
@@ -21,7 +22,27 @@ class ArtistDetails extends Component {
 			.then((responseFromApi) => {
 				const theArtist = responseFromApi.data;
 				this.setState(theArtist);
-				// axios.get
+				console.log("theArtist==>", theArtist);
+
+				{
+					/** //add the another axois get to get the artwork data of each artist
+					axios
+					.get(
+						`${process.env.REACT_APP_APIURL || ""}/api/artists/${
+							theArtist._id
+						}/workarts`
+					)
+					.then((response) => {
+						console.log("THEN aristsWorkart ===>", response);
+						this.setState({ aristsWorkart: response.data.workarts });
+					})
+					.catch((err) => {
+						console.log("Error while fetching artist's workart", err);
+					});
+			*/
+				}
+
+				console.log("theAritst=====>", responseFromApi.data);
 			})
 			.catch((err) => {
 				console.log("Error while fetching artist", err);
@@ -45,11 +66,11 @@ class ArtistDetails extends Component {
 						</div>
 						<div class="half half-right">
 							<h2 className="name">{this.state.name}</h2>
-							<p>Hello this is the artist page</p>
 							<h3 className="bio">Bio</h3>
 							<p>{this.state.description}</p>
 							<h3 className="location">Location</h3>
 							<p>{this.state.city}</p>
+
 							{/*
             <h3 className="location">Price</h3>
 							<p>{this.state.}</p>

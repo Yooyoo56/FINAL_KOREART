@@ -2,7 +2,6 @@
 // https://www.npmjs.com/package/mongoose
 const mongoose = require("mongoose");
 
-
 // take the model for the mongodb
 const Artist = require("../models/Artist.model");
 const Workart = require("../models/Workart.model");

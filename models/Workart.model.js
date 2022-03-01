@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 const workartSchema = new Schema(
 	{
 		name: String,
-		artist: { type: Schema.Types.ObjectId, ref: "Artist", required: true },
+		//	artist: { type: Schema.Types.ObjectId, ref: "Artist", required: true },
 		image: String,
 		type: {
 			type: String,
@@ -16,6 +16,8 @@ const workartSchema = new Schema(
 				"Drawing",
 			],
 		},
+		//price_workart: { type: Schema.Types.Double },
+		//price_currency: String,
 		price_workart: {
 			value: Number,
 			currency: String,

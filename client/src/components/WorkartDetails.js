@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 class WorkartDetails extends Component {
 	state = {
-		favorited: null,
 		counter: 0,
+		workart: {},
 	};
 	// monter le composant single artist
 	componentDidMount() {
@@ -18,8 +18,8 @@ class WorkartDetails extends Component {
 			.get(`${process.env.REACT_APP_APIURL || ""}/api/workarts/${params.id}`)
 			.then((responseFromApi) => {
 				const theWorkart = responseFromApi.data;
-				console.log("the workart", theWorkart);
-				this.setState(theWorkart);
+				console.log("the workart===>", theWorkart);
+				this.setState({ workart: theWorkart });
 			})
 			.catch((err) => {
 				console.log("Error while fetching workart", err);
@@ -64,8 +64,8 @@ class WorkartDetails extends Component {
 			<div>
 				{/*base du cours
         <div>this is the artist detail</div>
-        <h1>{this.state.name}</h1>
-        <p>{this.state.description}</p>
+        <h1>{this.state.workart.name}</h1>
+        <p>{this.state.workart.description}</p>
         */}
 
 				{
@@ -75,27 +75,41 @@ class WorkartDetails extends Component {
 					<div className="card-class">
 						<div className="half half-left">
 							<div className="img-container">
-								<img src={this.state.image} alt="" />
+								<img src={this.state.workart.image} alt="" />
 							</div>
 						</div>
 						<div className="half half-right">
-							<h2 className="name">{this.state.name}</h2>
-							<p>Hello this is the artist page</p>
-							<h3 className="bio">Infos</h3>
+							<h2 className="name">{this.state.workart.name}</h2>
 							<div className="my-button">
 								{this.state.counter === 1 ? (
 									<div>
-										<button onClick={() => this.removeFavorite()}>♥︎</button>
+										<button
+											className="heart"
+											onClick={() => this.removeFavorite()}
+										>
+											♥︎
+										</button>
 										<p>
 											The workart has been added to your favorites collection.
 										</p>
 									</div>
 								) : (
-									<button onClick={() => this.addFavorite()}>♡</button>
+									<button className="heart" onClick={() => this.addFavorite()}>
+										♡
+									</button>
 								)}
 							</div>
-							<p>{this.state.description}</p>
+							<h3 className="bio">Infos</h3>
+
+							<p>Year :{this.state.workart.description}</p>
+
 							<h3 className="location">price</h3>
+
+							<p>
+								{this.state.workart.price_workart?.value}{" "}
+								{this.state.workart.price_workart?.currency}
+							</p>
+
 							<p></p>
 							{/*
         <WorkartByArtist getData={() => this.getWorkartByArtist()}/> {/* <== !!!*/}
