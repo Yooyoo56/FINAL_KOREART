@@ -1,6 +1,7 @@
 import Popin from "../Popin.js";
 import authService from "./auth-service.js";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Profile.css";
 import profileImg from "../components/carousel/profile.png";
 
@@ -49,8 +50,14 @@ class Profile extends Component {
 				<div>
 					<br></br>
 					<h3 className="auth-h3">
+						You're logged out.
+						<br></br>
 						You should loggedin to aceess your profile!
 					</h3>
+					<small>
+						Hello there, If you already have an account, you can login from{" "}
+						<Link to="/login">here</Link>
+					</small>
 				</div>
 			);
 		else {
