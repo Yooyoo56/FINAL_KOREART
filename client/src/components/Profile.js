@@ -46,9 +46,12 @@ class Profile extends Component {
 	render() {
 		if (this.props.user === false)
 			return (
-				<h3 className="auth-h3">
-					You should loggedin to aceess your profile!"
-				</h3>
+				<div>
+					<br></br>
+					<h3 className="auth-h3">
+						You should loggedin to aceess your profile!
+					</h3>
+				</div>
 			);
 		else {
 			if (!this.props.user._id) return "loading...";
@@ -73,7 +76,7 @@ class Profile extends Component {
 										<Popin
 											one={
 												<>
-													<h1 className="auth-h1">Profile</h1>
+													<h2 className="auth-h2">Profile</h2>
 													<label>
 														<h5 className="card-title">
 															<p>
@@ -100,9 +103,12 @@ class Profile extends Component {
 														<p className="card-text">
 															<em>My whishlist: </em>
 															<ul className="profile-ul">
-																{this.props.user.favorites.map((workart) => {
-																	return <li>{workart.name}</li>;
-																})}
+																{/* Only display 10 favorites - wishlist */}
+																{this.props.user.favorites
+																	.slice(0, 10)
+																	.map((workart) => {
+																		return <li>{workart.name}</li>;
+																	})}
 															</ul>
 														</p>
 													</label>

@@ -50,6 +50,7 @@ class Navbar extends React.Component {
 											Signup
 										</Link>
 									</li>
+
 									<li>
 										<Link to="/" style={{ textDecoration: "none" }}>
 											Home

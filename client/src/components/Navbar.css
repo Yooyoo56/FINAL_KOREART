@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
 /*
                                                                            
  #####  ######  ####  #    # #####  ####  #####     #    # # ###### #    # 
@@ -20,9 +22,9 @@
     color: white;
     height: 70px;
     font-family: sans-serif;
-    color:rgb(233, 5, 138);
     display: flex;
     flex-wrap:wrap;
+    font-family: "Poppins", sans-serif;
     align-items: center;
 }
 

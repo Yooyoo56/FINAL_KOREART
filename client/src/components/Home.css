@@ -44,6 +44,17 @@ font-size: 14px;
     font-weight: 800;
     }
 
+a{
+    color: #F83487;
+}
+
+a:hover{
+    color: #F83487;
+}
+ a:visited{
+    color:#F83487;
+}
+
 
 
     .home-app-content{

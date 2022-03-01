@@ -5,9 +5,10 @@
   .first-section{
       display:flex;
   }
-  .auth-h1{
+  .auth-h2{
       color:#F83487;
-      padding-bottom: 30px;
+      padding-top:10px;
+      padding-bottom: 10px;
   }
 
   .auth-h3{
