@@ -163,6 +163,7 @@ router.post("/sessions", isLoggedOut, (req, res, next) => {
 	}
 	if (!password) {
 		return res
+			.populate("favorites")
 			.status(400)
 			.json({ errorMessage: "Please provide your password." });
 	}
