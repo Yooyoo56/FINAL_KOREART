@@ -51,12 +51,16 @@ class WorkartDetails extends Component {
 			`${process.env.REACT_APP_APIURL || ""}/api/delete/${params.id}/favorite`,
 			{},
 			{ withCredentials: true }
-		);
-		this.setState({ counter: this.state.counter - 1 })
-			.then((res) => console.log(res.data))
+		)
+			.then((res) => {
+				console.log(res.data)
+				this.setState({ counter: this.state.counter - 1 })
+			})
 			.catch((err) => {
 				console.log(err);
 			});
+		
+			
 	};
 
 	render() {
