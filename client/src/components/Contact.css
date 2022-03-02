@@ -9,7 +9,7 @@
     padding-bottom: 30px;
 }
 
-  .second-section {
+  .second-sections {
     color:white;
     display:flex;
     align-items: center;
@@ -92,6 +92,5 @@
  .btn-login:hover {
     box-shadow: none;
   }
-
 
 

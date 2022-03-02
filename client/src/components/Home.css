@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+.body{
+    font-family: "Poppins", sans-serif;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
 
 .phone-screen {
 display: flex;
@@ -37,6 +46,7 @@ font-size: 14px;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 1px;
+    color:black;
     }
     
     .genre-tracks-count{
@@ -44,18 +54,19 @@ font-size: 14px;
     font-weight: 800;
     }
 
-a{
-    color: #F83487;
-}
 
-a:hover{
+/*Color the Link!!!!*/
+
+.title-link{
+    color: #F83487;
+    text-decoration: none;
+}
+.title-link:hover{
     color: #F83487;
 }
- a:visited{
+.title-link:visited{
     color:#F83487;
 }
-
-
 
     .home-app-content{
         flex-grow: 1;

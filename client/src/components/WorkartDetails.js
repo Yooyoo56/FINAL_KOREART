@@ -47,20 +47,22 @@ class WorkartDetails extends Component {
 	};
 	removeFavorite = () => {
 		const { params } = this.props.match;
-		axios.put(
-			`${process.env.REACT_APP_APIURL || ""}/api/delete/${params.id}/favorite`,
-			{},
-			{ withCredentials: true }
-		)
+		axios
+			.put(
+				`${process.env.REACT_APP_APIURL || ""}/api/delete/${
+					params.id
+				}/favorite`,
+				{},
+				{ withCredentials: true }
+			)
 			.then((res) => {
-				console.log(res.data)
-				this.setState({ counter: this.state.counter - 1 })
+				console.log(res.data);
+				alert("This artwork has been removed from your wishlist!");
+				this.setState({ counter: this.state.counter - 1 });
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		
-			
 	};
 
 	render() {

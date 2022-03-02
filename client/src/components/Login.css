@@ -9,7 +9,7 @@
     padding-bottom: 30px;
 }
 
-  .second-section {
+  .second-sections {
     color:white;
     display:flex;
     align-items: center;
@@ -48,7 +48,19 @@
     outline: none;
     box-sizing: border-box;
   }
-  
+
+  /* Color the LINK!!!!*/
+.create-link{
+  color: #F83487;
+}
+
+.create-link:hover{
+  color: #F83487;
+}
+
+.create-link:visited{
+  color: #F83487;
+}
 
 
   label {
@@ -91,7 +103,6 @@
     box-shadow: inset 1px 1px 1px #F83487, inset -1px -1px 1px black;
 
   }
-
 
   .btn-login {
     font-family: poppins;

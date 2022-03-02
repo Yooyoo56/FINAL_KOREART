@@ -39,7 +39,7 @@ class Login extends React.Component {
 
 		return (
 			<div className="first-section">
-				<div className="second-section">
+				<div className="second-sections">
 					<Popin
 						one={
 							<div className="login-section">
@@ -82,7 +82,10 @@ class Login extends React.Component {
 								<p>
 									<small>
 										If you don't have an account yet, you can create your
-										account <Link to="/signup">here</Link>
+										account{" "}
+										<Link to="/signup" className="create-link">
+											here
+										</Link>
 									</small>
 								</p>
 							</div>

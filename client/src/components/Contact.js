@@ -52,7 +52,7 @@ class Contact extends React.Component {
 	render() {
 		return (
 			<div className="first-section">
-				<div className="second-section">
+				<div className="second-sections">
 					<div className="row">
 						<div className="col-md">
 							<div className="section-title">

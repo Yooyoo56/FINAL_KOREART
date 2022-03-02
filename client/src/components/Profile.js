@@ -8,6 +8,7 @@ import profileImg from "../components/carousel/profile.png";
 class Profile extends Component {
 	state = {
 		data: [],
+		mood: 0,
 		per: 1,
 		page: 1,
 		total_pages: null,
@@ -17,6 +18,12 @@ class Profile extends Component {
 	logout = (event) => {
 		authService.logout().then((response) => {
 			this.props.updateUser(false);
+		});
+	};
+
+	moodChanger = (event) => {
+		this.setState({
+			mood: Math.round(7 * Math.random()),
 		});
 	};
 
@@ -45,6 +52,17 @@ class Profile extends Component {
 	}
 
 	render() {
+		let changer;
+		if (this.state.mood % 2) {
+			changer = "😍";
+		} else if (this.state.mood % 3) {
+			changer = "😂";
+		} else if (this.state.mood % 5) {
+			changer = "🤯";
+		} else {
+			changer = "🤓";
+		}
+
 		if (this.props.user === false)
 			return (
 				<div>
@@ -56,7 +74,9 @@ class Profile extends Component {
 					</h3>
 					<small>
 						Hello there, If you already have an account, you can login from{" "}
-						<Link to="/login">here</Link>
+						<Link to="/login" className="create-link">
+							here
+						</Link>
 					</small>
 				</div>
 			);
@@ -71,7 +91,7 @@ class Profile extends Component {
 							<div className="Nocard">
 								<div className="card-body">
 									<div className="avatar">
-										<img src={profileImg}></img>
+										{/*<img src={profileImg}></img> */}
 										{/*<img
 											src={data.picture.large}
 											className="card-img-top"
@@ -85,6 +105,14 @@ class Profile extends Component {
 												<>
 													<h2 className="auth-h2">Profile</h2>
 													<label>
+														<p>Choose your mood!</p>
+														<span
+															className="changer"
+															onClick={this.moodChanger}
+														>
+															{changer}
+														</span>
+
 														<h5 className="card-title">
 															<p>
 																<em>Name: </em>
@@ -118,8 +146,12 @@ class Profile extends Component {
 																		return (
 																			<div key={workart._id}>
 																				<div className="workart-div">
-																					<img src={workart.image} alt=""></img>
-																					<li>{workart.name}</li>
+																					<img
+																						className="workart-img"
+																						src={workart.image}
+																						alt=""
+																					></img>
+																					<p>{workart.name}</p>
 																				</div>
 																			</div>
 																		);

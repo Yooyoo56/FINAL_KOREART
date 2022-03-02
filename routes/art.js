@@ -202,6 +202,7 @@ router.put("/add/:workartId/favorite", (req, res) => {
 	if (!req.params.workartId) {
 		res.status(401).json({ errorMessage: "Workart error" });
 	}
+
 	User.findByIdAndUpdate(
 		{ _id: req.session.user._id },
 		{ $push: { favorites: mongoose.Types.ObjectId(req.params.workartId) } },

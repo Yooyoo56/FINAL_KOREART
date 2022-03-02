@@ -41,29 +41,49 @@ class Navbar extends React.Component {
 							<div class="nav-menu">
 								<ul>
 									<li>
-										<Link to="/login" style={{ textDecoration: "none" }}>
+										<Link
+											to="/login"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Login
 										</Link>
 									</li>
 									<li>
-										<Link to="/signup" style={{ textDecoration: "none" }}>
+										<Link
+											to="/signup"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Signup
 										</Link>
 									</li>
 
 									<li>
-										<Link to="/" style={{ textDecoration: "none" }}>
+										<Link
+											to="/"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Home
 										</Link>
 									</li>
 
 									<li>
-										<Link to="/contact" style={{ textDecoration: "none" }}>
+										<Link
+											to="/contact"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Contact
 										</Link>
 									</li>
 									<li>
-										<Link to="/search" style={{ textDecoration: "none" }}>
+										<Link
+											to="/search"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Search
 										</Link>
 									</li>
@@ -92,23 +112,39 @@ class Navbar extends React.Component {
 								<ul>
 									<li>
 										{/* profile page -> when refresh the page, doesnt work*/}
-										<Link to="/profile" style={{ textDecoration: "none" }}>
+										<Link
+											to="/profile"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Profile
 										</Link>
 									</li>
 									<li>
-										<Link to="/" style={{ textDecoration: "none" }}>
+										<Link
+											to="/"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Home
 										</Link>
 									</li>
 
 									<li>
-										<Link to="/contact" style={{ textDecoration: "none" }}>
+										<Link
+											to="/contact"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Contact
 										</Link>
 									</li>
 									<li>
-										<Link to="/search" style={{ textDecoration: "none" }}>
+										<Link
+											to="/search"
+											className="nav-element"
+											style={{ textDecoration: "none" }}
+										>
 											Search
 										</Link>
 									</li>

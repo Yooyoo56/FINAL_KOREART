@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-/*
-                                                                           
+
+/*                                                                           
  #####  ######  ####  #    # #####  ####  #####     #    # # ###### #    # 
  #    # #      #      #   #    #   #    # #    #    #    # # #      #    # 
  #    # #####   ####  ####     #   #    # #    #    #    # # #####  #    # 
@@ -37,8 +37,30 @@
     background: rgb(233, 5, 138);
     padding: 16px 40px;
     text-align: center;
+    font-size: 20px;
 
 }
+
+.nav-title :visited{
+    color: black;
+}
+.nav-title :hover{
+    color:black
+}
+
+/* Change the nav LINK color!!!!!!!!!!!!!! (link to = a href ) */
+.nav-element:visited{
+    color: white;
+}
+
+.nav-element{
+    color:rgb(233, 5, 138);
+}
+.nav-element:hover{
+    color:rgb(233, 5, 138);
+}
+
+
 .homeTitle{
     text-decoration: none; 
     color:black;
@@ -64,6 +86,7 @@ a:visited {
     display: flex;
     justify-content: flex-end;
 }
+
 
 .nav-menu ul li{
     text-decoration: none; 
