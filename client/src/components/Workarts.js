@@ -30,8 +30,8 @@ class Workarts extends React.Component {
 										<img src={workart.image} alt="art" />
 									</Link>
 									<div className="box-desc">
-										<Link to={`/workarts/${workart._id}`}>
-											<h3>{workart.name}</h3>
+										<Link to={`/workarts/${workart._id}`} className="title-link">
+											{workart.name}
 										</Link>
 									</div>
 								</div>

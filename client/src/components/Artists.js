@@ -32,8 +32,8 @@ class Artists extends React.Component {
 										<img src={artist.image} alt="art" />
 									</Link>
 									<div className="box-desc">
-										<Link to={`/artists/${artist._id}`}>
-											<h3>{artist.name}</h3>
+										<Link to={`/artists/${artist._id}`} className="title-link">
+											{artist.name}
 										</Link>
 									</div>
 								</div>
