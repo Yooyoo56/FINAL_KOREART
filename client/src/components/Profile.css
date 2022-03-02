@@ -15,7 +15,7 @@
   }
 
   .workart-img{
-    width:100px;
+    width:350px;
     height:auto;
   }
 
@@ -28,7 +28,6 @@
     color:#F83487;
   }
 
-
     .second-section {
       color:white;
       display:flex;
@@ -40,8 +39,7 @@
       position: relative;
       background-color: #F83487;
       height:0px;
-      box-sizing: border-box;
-     
+      box-sizing: border-box;  
     }
     
     label, input, button, textarea {
