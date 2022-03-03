@@ -37,7 +37,7 @@ class WorkartDetails extends Component {
 			.then((res) => {
 				console.log(res.data);
 				this.setState({ counter: this.state.counter + 1 });
-				//		this.props.updateUser(res.data.updatedUser);
+				this.props.updateUser(res.data.updatedUser);
 				alert("Artwork is on your wishlist!");
 			})
 			.catch((err) => {

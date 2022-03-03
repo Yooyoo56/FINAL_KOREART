@@ -206,6 +206,8 @@ router.put("/add/:workartId/favorite", (req, res) => {
 		{ $push: { favorites: mongoose.Types.ObjectId(req.params.workartId) } },
 		{ new: true }
 	)
+		// need to add the variable "favorites"
+		.populate("favorites")
 		.then((updatedUser) => {
 			res.json({ updatedUser });
 		})

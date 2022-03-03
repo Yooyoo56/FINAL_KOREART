@@ -76,13 +76,17 @@ class App extends Component {
 							/>
 							<Route exact path="/workarts" component={Workarts} />
 
+							{/**instancier apps ==> render = {props}  */}
 							<Route
 								exact
 								path="/workarts/:id"
-								component={WorkartDetails}
-								/* render={(props) => ( */
-								/*<WorkartDetails updateUser={this.updateUser} history={props.history} {...props} /> !}*/
-								/* )} */
+								//component={WorkartDetails}
+								render={(routerProps) => (
+									<WorkartDetails
+										{...routerProps}
+										updateUser={this.updateUser}
+									/>
+								)}
 							/>
 
 							<Route exact path="/gallery" component={Gallery} />
