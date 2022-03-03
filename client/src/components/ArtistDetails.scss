@@ -28,6 +28,25 @@
     transform: scale(1.6);
 }
 
+ /* Color the LINK!!!!*/
+ .create-link{
+  color: #F83487;
+  text-decoration: none;
+}
+
+.create-link:hover{
+  color: #F83487;
+  text-decoration: none;
+
+}
+
+.create-link:visited{
+  color: #F83487;
+  text-decoration: none;
+
+}
+
+
 .half-right {
   background-color: var(--dark);
   padding: 1.5rem 1rem 4rem 1rem;

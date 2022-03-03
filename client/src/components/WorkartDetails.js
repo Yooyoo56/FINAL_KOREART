@@ -95,9 +95,9 @@ class WorkartDetails extends Component {
 										>
 											♥︎
 										</button>
-										<p>
+										{/*	<p>
 											The workart has been added to your favorites collection.
-										</p>
+										</p>*/}
 									</div>
 								) : (
 									<button className="heart" onClick={() => this.addFavorite()}>
@@ -119,7 +119,10 @@ class WorkartDetails extends Component {
 							<p></p>
 							{/*
         <WorkartByArtist getData={() => this.getWorkartByArtist()}/> {/* <== !!!*/}
-							<Link to={"/"}>Homepage</Link>
+							<Link to={"/workarts"} className="create-link">
+								{" "}
+								>> Go back and discover more artworks{" "}
+							</Link>
 						</div>
 						<div class="triangle">
 							{/*

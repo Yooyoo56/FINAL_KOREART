@@ -79,7 +79,10 @@ class ArtistDetails extends Component {
 							{/*
         <WorkartByArtist getData={() => this.getWorkartByArtist()}/> {/* <== !!! 
       👨‍🏫*/}
-							<Link to={"/"}>Homepage</Link>
+							<Link to={"/artists"} className="create-link">
+								{" "}
+								>> Go back and check the artists
+							</Link>
 						</div>
 						<div class="triangle">
 							{/*
