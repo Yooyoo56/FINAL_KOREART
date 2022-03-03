@@ -128,15 +128,13 @@ router.get("/artists/:id/workarts", (req, res) => {
 */
 
 router.post("/contact", (req, res, next) => {
-	var name = req.body.name;
-	var email = req.body.email;
+	//var name = req.body.name;
+	//var email = req.body.email;
 	var subject = req.body.subject;
 	var message = req.body.message;
-	console.log("req==========>", req);
-	console.log("res==========>", res);
 
 	var mail = {
-		from: '"Mail from website koreart" <koreart@koreart.com>',
+		from: '"Koreart infos" <koreart@free.fr>',
 		to: "koreart@free.fr", // receiver email,
 		subject: subject,
 		text: message,
