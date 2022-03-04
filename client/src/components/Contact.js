@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import "./Contact.css";
+import swal from "sweetalert";
+import Swal from "sweetalert2";
+import Img1 from "./carousel/carousel1.jpeg";
 
 class Contact extends React.Component {
 	constructor(props) {
@@ -38,7 +41,11 @@ class Contact extends React.Component {
 		}).then((response) => {
 			console.log("response=====>", response);
 			if (response.data.status === "success") {
-				alert("Message Sent.");
+				Swal.fire({
+					title: "Sweet!",
+					text: "Your message have been sent!",
+				});
+
 				this.resetForm();
 			} else if (response.data.status === "fail") {
 				alert("Message failed to send.");

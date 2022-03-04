@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
+import swal from "sweetalert";
 
 //import the autService! (to link backend-frontend)
 import authService from "./components/auth-service.js";

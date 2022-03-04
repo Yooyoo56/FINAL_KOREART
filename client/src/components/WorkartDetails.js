@@ -1,6 +1,8 @@
 import React, { Component, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 class WorkartDetails extends Component {
 	state = {
@@ -38,10 +40,30 @@ class WorkartDetails extends Component {
 				console.log(res.data);
 				this.setState({ counter: this.state.counter + 1 });
 				this.props.updateUser(res.data.updatedUser);
-				alert("Artwork is on your wishlist!");
+				{
+					/** add css Swal */
+				}
+				Swal.fire({
+					title: "Artwork is on your wishlist!",
+					showClass: {
+						popup: "animate__animated animate__fadeInDown",
+					},
+					hideClass: {
+						popup: "animate__animated animate__fadeOutUp",
+					},
+				});
 			})
 			.catch((err) => {
-				alert("Need to login to add artwork as favorite!");
+				{
+					/** css for the alert button */
+				}
+				Swal.fire({
+					position: "center",
+					icon: "info",
+					title: "Need to login to add artwork as favorite!",
+					showConfirmButton: false,
+					timer: 2000,
+				});
 				console.log(err);
 			});
 	};
@@ -57,7 +79,17 @@ class WorkartDetails extends Component {
 			)
 			.then((res) => {
 				console.log(res.data);
-				alert("This artwork has been removed from your wishlist!");
+				{
+					/** css for the alert button */
+				}
+				Swal.fire({
+					position: "center",
+					icon: "success",
+					title: "This artwork has been removed from your wishlist!",
+					showConfirmButton: false,
+					timer: 2000,
+				});
+
 				this.setState({ counter: this.state.counter - 1 });
 			})
 			.catch((err) => {
@@ -107,7 +139,8 @@ class WorkartDetails extends Component {
 							</div>
 							<h3 className="bio">Infos</h3>
 
-							<p>Year :{this.state.workart.description}</p>
+							<p>Year : {this.state.workart.description}</p>
+							<p>Type : {this.state.workart.type}</p>
 
 							<h3 className="location">price</h3>
 
