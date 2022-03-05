@@ -1,5 +1,6 @@
 # Kore'Art project (MERN Web application project)
-Hello world! 👋 This is the first MERN web application project (responsive design) by @
+Hello world! 👋 This is the first MERN web application project (responsive design) by [Lea-beaulieu](https://github.com/lea-beaulieu
+) by [Yoojeong Tak](https://github.com/Yooyoo56) 
 
  #### MERN Stack: MERN Stack is a Javascript Stack that is used for easier and faster deployment of full-stack web applications. MERN Stack comprises of 4 technologies namely: MongoDB, Express, React and Node.js. It is designed to make the development process smoother and easier.
 
@@ -12,8 +13,13 @@ Hello world! 👋 This is the first MERN web application project (responsive des
 
 
 ## Functionality
-- 
-
+#####
+1. Use **React for all of the user-facing parts of your application.**
+2. Use **Express** for **API backend** that React app will communicate with.
+3. Use **Mongoose** for models and database communication.<br>  👉 the 3 models are included in our app ( Users, Artists, Artworks)<br>
+4. **Authentification** Have validation on its models with feedback for users if their submission is invalid. <br>
+👉  Include **sign up, log in & log out** functionality with encrypted passwords and authorization.<br>
+👉 logged in users can **add the favorite artworks** on their profile
 
 ## 💎  Gallery 
 ![image](https://user-images.githubusercontent.com/76490406/156899483-48699685-8b52-4751-bdfb-8c8ad0a96abd.png)
@@ -36,40 +42,3 @@ Hello world! 👋 This is the first MERN web application project (responsive des
 
 ## 💎  Contact us
 ![image](https://user-images.githubusercontent.com/76490406/156899594-54101eaf-bb4f-4a62-83d3-702fbee933ac.png)
-
-
-
-< What we did so far >
-
-1. create the 3 models (User, Artist, Workart)
-2. implement basic backend route
-
-- User (Sign up)
-- Sessions (Login)
-- Logout -> !!!!! need to stay loggedin
-
-3. create the nav bar
-
-< Need to do >
-
-1. Contact us-> https://gist.github.com/abernier/afd941d12ac8623c3acfe8249e3aa79c
-
-- need to use the nodemailier + SendGrid <optional>
-
-2. bin/seeds -> need to create the database
-
-- artists
-- workart
-
-3. add/favorite (17/02/2022 or 19/02/2022 )
-   delete/favorite
-
-4. nav bar (17/02/2022)
-
-- loggedIn user => access to profile page
-- Not loggedIn user => redirect to the login / signup page
-
-5. deploy Heroku
-   https://kore-art.herokuapp.com/
-
-6. Css => bulma / hard code
